@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Tantarian</string>
+    <string name="welcome">Welcome to Tantarian!</string>
+    <string name="login">Log In</string>
+    <string name="continue_without_login">Continue without logging in</string>
+</resources>

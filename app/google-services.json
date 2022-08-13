@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "338399667576",
+    "project_id": "tantarian-93121",
+    "storage_bucket": "tantarian-93121.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338399667576:android:b5e38095264e0dec63948d",
+        "android_client_info": {
+          "package_name": "com.soundwanders.tantarian"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338399667576-cu033ro2hfhm80fqcneibq2ltesf8jg4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVL4bZQqwQQdKiRZzpLtZC72CX0xB0pSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338399667576-cu033ro2hfhm80fqcneibq2ltesf8jg4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
