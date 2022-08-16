@@ -81,7 +81,7 @@
                     android:padding="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray01"
-                    />
+                />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Email -->
@@ -133,12 +133,12 @@
                     android:padding="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray01"
-                    />
+                />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Confirm Password -->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/cPasswordTil"
+                android:id="@+id/confirmPasswordTil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -147,7 +147,7 @@
                 app:passwordToggleEnabled="false"
                 >
                 <EditText
-                    android:id="@+id/cPasswordEt"
+                    android:id="@+id/confirmPasswordEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/shape_edittext01"
@@ -159,14 +159,15 @@
                     android:padding="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray01"
-                    />
+                />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Register New User -->
             <Button
                 android:id="@+id/registerBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/cPasswordTil"
+                android:layout_below="@id/confirmPasswordTil"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_button01"
                 android:text="@string/sign_up"

@@ -23,8 +23,8 @@
         android:layout_below="@id/iconIv"
         android:layout_centerHorizontal="true"
         android:text="@string/welcome"
-        android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textColor="@color/purple_700"
+        android:textSize="20sp"
     />
 
     <Button
