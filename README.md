@@ -1,2 +1,3 @@
 # tantarian
-Tantarian Android App
+
+Building a small library app with Kotlin

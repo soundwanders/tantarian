@@ -15,7 +15,7 @@ import com.soundwanders.tantarian.databinding.ActivityLoginBinding
 import com.soundwanders.tantarian.databinding.ActivityRegisterBinding
 
 class LoginActivity : AppCompatActivity() {
-    // view
+    // view binding
     private lateinit var binding: ActivityLoginBinding
 
     // firebase auth

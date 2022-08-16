@@ -12,7 +12,7 @@ import com.soundwanders.tantarian.databinding.ActivityRegisterBinding
 import java.util.regex.Pattern
 
 class RegisterActivity : AppCompatActivity() {
-    // view
+    // view binding
     private lateinit var binding: ActivityRegisterBinding
 
     // firebase auth
