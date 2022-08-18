@@ -109,7 +109,6 @@ class RegisterActivity : AppCompatActivity() {
         // send data to db
         // (uid!!) ensures child is a String
         val ref = FirebaseDatabase.getInstance().getReference("Users")
-
         ref.child(uid!!)
         .setValue(hashMap)
         .addOnSuccessListener {

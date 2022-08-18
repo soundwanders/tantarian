@@ -20,10 +20,14 @@ class AdminDashboardActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 
-        // sign out on click
+        // log out on click
         binding.logoutBtn.setOnClickListener {
             firebaseAuth.signOut()
             checkUser()
+        }
+
+        binding.addCategoryBtn.setOnClickListener {
+            startActivity(Intent(this, AddCategoryActivity::class.java))
         }
     }
 

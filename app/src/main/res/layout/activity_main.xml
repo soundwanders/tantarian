@@ -23,7 +23,7 @@
         android:layout_below="@id/iconIv"
         android:layout_centerHorizontal="true"
         android:text="@string/welcome"
-        android:textColor="@color/purple_700"
+        android:textColor="@color/peach_700"
         android:textSize="20sp"
     />
 
@@ -46,6 +46,6 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/shape_button02"
         android:text="@string/continue_without_login"
-        android:textColor="@color/purple_500" />
+        android:textColor="@color/peach_500" />
 
 </RelativeLayout>
