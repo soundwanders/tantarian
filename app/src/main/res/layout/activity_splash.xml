@@ -22,9 +22,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:fontFamily="sans-serif-condensed"
+        android:fontFamily="sans-serif"
         android:textColor="@color/black"
         android:layout_marginTop="20dp"
     />

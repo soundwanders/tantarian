@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddCategoryActivity">
+    tools:context=".AddCategoryActivity"
+    android:background="@drawable/back01"
+    >
 
     <!-- Toolbar -->
     <RelativeLayout
@@ -22,8 +24,7 @@
             android:padding="5dp"
             android:src="@drawable/ic_back_white"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/back"
-        />
+            android:contentDescription="@string/back" />
 
         <ImageView
             android:id="@+id/iconIv"
@@ -32,8 +33,7 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@id/backBtn"
             android:src="@drawable/logo"
-            android:contentDescription="@string/app_name"
-        />
+            android:contentDescription="@string/app_name" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,11 +42,12 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:padding="6dp"
-            android:fontFamily="sans-serif-condensed"
+            android:fontFamily="sans-serif-black"
+            android:textSize="18sp"
             android:text="@string/add_new_category"
-            android:textColor="@color/white"
-            android:scrollbarSize="28sp"
-        />
+            android:textColor="@color/black"
+            android:scrollbarSize="28sp" />
+    </RelativeLayout>
 
         <!-- Text Input for Category -->
         <com.google.android.material.textfield.TextInputLayout
@@ -55,23 +56,23 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginTop="240dp"
+            android:layout_marginTop="250dp"
             app:hintEnabled="false"
         >
+
             <EditText
                 android:id="@+id/categoryEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="false"
                 android:background="@drawable/shape_edittext01"
-                android:padding="10dp"
                 android:drawableStart="@drawable/ic_category_gray"
                 android:drawablePadding="10dp"
                 android:hint="@string/category_title"
-                android:autofillHints="false"
                 android:inputType="textPersonName|textCapSentences"
-                android:textColor="@color/black"
-                android:textColorHint="@color/gray01"
-            />
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/gray01" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -80,12 +81,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/categoryTil"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
             android:layout_marginTop="20dp"
-            android:text="@string/submit"
-            android:textColor="@color/white"
+            android:layout_marginEnd="30dp"
             android:background="@drawable/shape_button01"
-        />
-
-    </RelativeLayout>
+            android:text="@string/submit"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
 </RelativeLayout>

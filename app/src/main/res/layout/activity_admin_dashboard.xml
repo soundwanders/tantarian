@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AdminDashboardActivity"
+    android:background="@color/black"
     >
 
     <!-- Toolbar -->
@@ -22,8 +23,9 @@
             android:layout_marginTop="8dp"
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
         />
+
         <TextView
             android:id="@+id/subTitleTv"
             android:layout_width="wrap_content"
@@ -31,8 +33,7 @@
             android:layout_below="@id/titleTv"
             android:layout_centerHorizontal="true"
             android:text="@string/test_user"
-            android:textColor="@color/white"
-        />
+            android:textColor="@color/black" />
 
         <ImageButton
             android:id="@+id/logoutBtn"
@@ -46,8 +47,40 @@
             android:contentDescription="@string/app_name"
         />
     </RelativeLayout>
+    
+    <!-- Search -->
+    <EditText
+        android:id="@+id/searchEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarRl"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/white"
+        android:drawableStart="@drawable/ic_search_gray"
+        android:hint="@string/search"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="@color/gray01"
+        android:autofillHints="false"/>
+
+    <!-- Categories -->
 
     <!-- Page Content -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoriesRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchEt"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="95dp"
+        android:paddingBottom="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/row_category" />
+
     <LinearLayout
         android:id="@+id/contentLl"
         android:layout_width="match_parent"
@@ -57,6 +90,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
+        android:background="@color/black"
     >
 
         <Button
@@ -69,8 +103,7 @@
             android:minHeight="50dp"
             android:text="@string/add_category"
             android:textAllCaps="false"
-            android:textColor="@color/white"
-        />
+            android:textColor="@color/black" />
 
         <!-- Add Pdf file -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -79,10 +112,9 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/peach_500"
             android:src="@drawable/ic_pdf_add_white"
-            app:fabCustomSize="50dp"
-            app:tint="@color/white"
-            android:contentDescription="@string/add_pdf"
-        />
+            app:fabCustomSize="45dp"
+            app:tint="@color/black"
+            android:contentDescription="@string/add_pdf" />
     </LinearLayout>
 </RelativeLayout>
 
