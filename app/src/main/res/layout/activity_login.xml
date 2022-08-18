@@ -32,7 +32,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:text="@string/request_user_login"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:fontFamily="sans-serif-condensed"
             android:textSize="28sp"
         />
@@ -117,7 +117,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_below="@id/forgotPasswordTv"
                 android:text="@string/login"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:background="@drawable/shape_button01"
             />
         </RelativeLayout>
@@ -132,5 +132,6 @@
         android:layout_centerHorizontal="true"
         android:padding="10dp"
         android:text="@string/sign_up"
+        android:textColor="@color/black"
     />
 </RelativeLayout>
