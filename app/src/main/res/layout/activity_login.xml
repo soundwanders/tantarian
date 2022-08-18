@@ -117,8 +117,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_below="@id/forgotPasswordTv"
                 android:text="@string/login"
-                android:textColor="@color/black"
-                android:background="@drawable/shape_button01"
+                android:textColor="@color/peach_900"
+                android:background="@drawable/shape_button04"
             />
         </RelativeLayout>
     </ScrollView>
@@ -132,6 +132,7 @@
         android:layout_centerHorizontal="true"
         android:padding="10dp"
         android:text="@string/sign_up"
+        android:textSize="14sp"
         android:textColor="@color/black"
     />
 </RelativeLayout>

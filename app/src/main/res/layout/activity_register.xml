@@ -169,9 +169,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/confirmPasswordTil"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/shape_button01"
-                android:text="@string/sign_up"
-                android:textColor="@color/white"
+                android:background="@drawable/shape_button04"
+                android:text="@string/register_user"
+                android:textColor="@color/peach_900"
             />
         </RelativeLayout>
     </ScrollView>

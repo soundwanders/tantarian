@@ -13,9 +13,8 @@
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:src="@drawable/logo"
         android:contentDescription="@string/app_name"
-    />
+        android:src="@drawable/logo" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,7 +34,7 @@
         android:layout_above="@id/skipBtn"
         android:background="@drawable/shape_button01"
         android:text="@string/login"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
     />
 
     <Button
@@ -46,6 +45,6 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/shape_button02"
         android:text="@string/continue_without_login"
-        android:textColor="@color/peach_500" />
+        android:textColor="@color/white" />
 
 </RelativeLayout>
