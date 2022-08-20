@@ -117,7 +117,11 @@
                 android:layout_marginTop="20dp"
                 android:layout_below="@id/forgotPasswordTv"
                 android:text="@string/login"
+<<<<<<< HEAD
                 android:textColor="@color/peach_900"
+=======
+                android:textColor="@color/black"
+>>>>>>> 8ec2f4c (color scheme updated)
                 android:background="@drawable/shape_button04"
             />
         </RelativeLayout>
