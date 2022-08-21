@@ -5,16 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/black"
+    >
 
     <ImageView
         android:id="@+id/iconIv"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,8 +25,7 @@
         android:layout_centerHorizontal="true"
         android:text="@string/welcome"
         android:textColor="@color/peach_700"
-        android:textSize="20sp"
-    />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/loginBtn"
@@ -34,8 +35,7 @@
         android:layout_above="@id/skipBtn"
         android:background="@drawable/shape_button01"
         android:text="@string/login"
-        android:textColor="@color/black"
-    />
+        android:textColor="@color/black" />
 
     <Button
         android:id="@+id/skipBtn"
@@ -45,6 +45,6 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/shape_button02"
         android:text="@string/continue_without_login"
-        android:textColor="@color/white" />
+        android:textColor="@color/peach_200" />
 
 </RelativeLayout>

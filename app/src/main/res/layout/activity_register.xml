@@ -12,7 +12,7 @@
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="205dp"
         android:background="@drawable/shape_toolbar01"
     >
 
@@ -32,7 +32,7 @@
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:src="@drawable/logo"
             android:contentDescription="@string/app_name"
         />
@@ -44,9 +44,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:text="@string/create_account"
-            android:textColor="@color/white"
-            android:fontFamily="sans-serif-condensed"
-            android:textSize="28sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-black"
+            android:textSize="26sp"
         />
     </RelativeLayout>
 
@@ -171,7 +171,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_button04"
                 android:text="@string/register_user"
-                android:textColor="@color/peach_900"
+                android:textColor="@color/black"
             />
         </RelativeLayout>
     </ScrollView>
