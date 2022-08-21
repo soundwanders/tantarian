@@ -1,24 +1,31 @@
 <resources>
+    <!-- Generic Strings -->
     <string name="app_name">Tantarian</string>
     <string name="welcome">Welcome to <b>Tantarian</b></string>
     <string name="test_user">user@tantarian</string>
-    <string name="name">Name</string>
-    <string name="email">E-mail</string>
 
+    <!-- Sign Up / Log In -->
     <string name="login">Log In</string>
     <string name="request_sign_up">No Account? Sign Up!</string>
     <string name="continue_without_login">Continue without login</string>
     <string name="request_user_login">Welcome Back!</string>
     <string name="create_account">Create an Account</string>
+    <string name="register_user">Sign Up!</string>
+    <string name="name">Name</string>
+    <string name="email">E-mail</string>
 
+    <!-- Password -->
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="forgot_password">Forgot password?</string>
 
+    <!-- Buttons -->
     <string name="submit">Submit</string>
     <string name="search">Search</string>
     <string name="back">Back</string>
+    <string name="view_more">View More</string>
 
+    <!-- Books -->
     <string name="books">Books</string>
     <string name="category">Category</string>
     <string name="category_name">Category Name</string>
@@ -27,11 +34,11 @@
     <string name="add_new_category">Add a New Category</string>
     <string name="add_pdf">Add Pdf</string>
     <string name="book_title">Title</string>
-    <string name="description">Description</string>
+    <string name="book_description">Description</string>
+    <string name="book_category">Category/Genre</string>
     <string name="file_size">File Size</string>
     <string name="date_format">dd/mm/yyyy</string>
-    <string name="view_more">View More</string>
-    <string name="register_user">Sign Up!</string>
     <string name="add_new_book">Add a New Book</string>
-    <string name="book_category">Category/Genre</string>
+    <string name="edit_book">Edit Book</string>
+    <string name="save_and_update"><![CDATA[Save & Update]]></string>
 </resources>

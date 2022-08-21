@@ -55,6 +55,10 @@ class PdfListAdminActivity : AppCompatActivity() {
                 TODO("Not yet implemented")
             }
         })
+
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun loadPdfList() {

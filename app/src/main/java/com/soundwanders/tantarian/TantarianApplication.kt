@@ -1,11 +1,14 @@
 package com.soundwanders.tantarian
 
 import android.app.Application
+import android.app.ProgressDialog
+import android.content.Context
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import com.github.barteksc.pdfviewer.PDFView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -113,6 +116,66 @@ class TantarianApplication:Application() {
                         TODO("Not yet implemented")
                     }
                 })
+        }
+
+        fun deleteBook(
+            context: Context,
+            bookId: String,
+            bookUrl: String,
+            bookTitle: String
+        ) {
+            // context, used for progressDialog and Toast
+            // bookId, used to delete correct book from db
+            // bookUrl, delete book from Firebase store
+            // bookTitle, show in dialog for user awareness
+
+            val TAG = "DELETE_BOOK_TAG"
+
+            Log.d(TAG, "deleteBook: Deleting selected book")
+
+            val progressDialog = ProgressDialog(context)
+            progressDialog.setTitle("One moment please...")
+            progressDialog.setMessage("Deleting ${bookTitle}")
+            progressDialog.setCanceledOnTouchOutside(false)
+            progressDialog.show()
+
+            Log.d(TAG, "deleteBook: Deleting from Cloud Storage")
+            val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(bookUrl)
+            storageReference.delete()
+                .addOnSuccessListener {
+                    Log.d(TAG, "deleteBook: Permanently deleting selected book!")
+                    Log.d(TAG, "deleteBook: Deleting book from Cloud storage")
+
+                    val ref = FirebaseDatabase.getInstance().getReference("Books")
+
+                    ref.child(bookId)
+                        .removeValue()
+
+                        // NESTED onSuccess and onFailure listeners
+                        .addOnSuccessListener {
+                            progressDialog.dismiss()
+                            Log.d(TAG, "deleteBook: Successfully deleted and removed book from database")
+                            Toast.makeText(context, "Successfully deleted...forever!", Toast.LENGTH_SHORT).show()
+                        }
+                        .addOnFailureListener { e ->
+                            progressDialog.dismiss()
+                            Log.d(TAG, "deleteBook: Failed to delete from database due to ${e.message}"
+                            )
+                            Toast.makeText(
+                                context,
+                                "Failed to delete book due to ${e.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                }
+                .addOnFailureListener { e ->
+                    Log.d(TAG, "deleteBook: Failed to delete book from storage due to ${e.message}")
+                    Toast.makeText(
+                        context,
+                        "Failed to delete book from storage due to ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
         }
     }
 }

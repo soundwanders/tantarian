@@ -51,7 +51,7 @@
             android:layout_below="@id/titleTv"
             android:layout_marginTop="8dp"
             android:maxLines="4"
-            android:text="@string/description"
+            android:text="@string/book_description"
             android:ellipsize="end"
         />
 
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@id/sizeTv"
-            android:layout_marginLeft="6dp"
+            android:layout_marginStart="6dp"
             android:maxLines="1"
             android:text="@string/date_format"
             android:textAlignment="center"

@@ -1,6 +1,8 @@
 package com.soundwanders.tantarian
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,12 +13,13 @@ import com.soundwanders.tantarian.databinding.RowPdfAdminBinding
 
 class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Filterable{
     private var context: Context
-    public var pdfArrayList: ArrayList<ModelPdf>
+
+    // pdfArrayList is public
+    var pdfArrayList: ArrayList<ModelPdf>
+
     private val filterList: ArrayList<ModelPdf>
-
     private lateinit var binding:RowPdfAdminBinding
-
-    var filter: FilterPdfAdmin? = null
+    private var filter: FilterPdfAdmin? = null
 
     constructor(context: Context, pdfArrayList: ArrayList<ModelPdf>) : super() {
         this.context = context
@@ -53,6 +56,33 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
 
         // get pdf size
         TantarianApplication.loadPdfSize(pdfUrl, title, holder.sizeTv)
+
+        holder.moreBtn.setOnClickListener {
+            moreOptionsDialog(model, holder)
+        }
+    }
+
+    private fun moreOptionsDialog(model: ModelPdf, holder: AdapterPdfAdmin.HolderPdfAdmin) {
+        val bookId = model.id
+        val bookUrl = model.url
+        val bookTitle = model.title
+
+        // dialog options
+        val options = arrayOf("Edit", "Delete")
+
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Select Option")
+            .setItems(options){ dialog, position ->
+                if (position == 0) {
+                    // bookId will be used to edit the selected book
+                    val intent = Intent(context, PdfEditActivity::class.java)
+                    intent.putExtra("bookId", bookId)
+                    context.startActivity(intent)
+                }
+                else if (position == 1) {
+                    TantarianApplication.deleteBook(context, bookId, bookUrl, bookTitle)
+                }
+            }
     }
 
     override fun getItemCount(): Int {
