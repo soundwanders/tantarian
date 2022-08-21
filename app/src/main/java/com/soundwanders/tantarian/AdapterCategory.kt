@@ -61,7 +61,7 @@ class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
                 .show()
         }
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, PdfAdminActivity::class.java)
+            val intent = Intent(context, PdfListAdminActivity::class.java)
             intent.putExtra("categoryId", id)
             intent.putExtra("category", category)
             context.startActivity(intent)

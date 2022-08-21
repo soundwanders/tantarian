@@ -32,4 +32,6 @@
     <string name="date_format">dd/mm/yyyy</string>
     <string name="view_more">View More</string>
     <string name="register_user">Sign Up!</string>
+    <string name="add_new_book">Add a New Book</string>
+    <string name="book_category">Category/Genre</string>
 </resources>

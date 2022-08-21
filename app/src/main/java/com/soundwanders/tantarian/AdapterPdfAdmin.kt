@@ -4,18 +4,24 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.soundwanders.tantarian.databinding.RowPdfAdminBinding
 
-class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin> {
+class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Filterable{
     private var context: Context
-    private var pdfArrayList: ArrayList<ModelPdf>
+    public var pdfArrayList: ArrayList<ModelPdf>
+    private val filterList: ArrayList<ModelPdf>
 
     private lateinit var binding:RowPdfAdminBinding
+
+    var filter: FilterPdfAdmin? = null
 
     constructor(context: Context, pdfArrayList: ArrayList<ModelPdf>) : super() {
         this.context = context
         this.pdfArrayList = pdfArrayList
+        this.filterList = pdfArrayList
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderPdfAdmin {
@@ -32,23 +38,42 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin> {
         val description = model.description
         val pdfUrl = model.url
         val timestamp = model.timestamp
+        val formattedDate = TantarianApplication.formatTimeStamp(timestamp)
 
-    }
+        // set data to holder view
+        holder.titleTv.text = title
+        holder.descriptionTv.text = description
+        holder.dateTv.text = formattedDate
 
-    inner class HolderPdfAdmin(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        // PDF UI
-        val pdfView = binding.pdfView
-        val progressBar  = binding.progressBar
-        val titleTv = binding.titleTv
-        val descriptionTv = binding.descriptionTv
-        val categoryTv = binding.categoryTv
-        val sizeTv = binding.sizeTv
-        val dateTv = binding.dateTv
-        val moreBtn = binding.moreBtn
+        // get category id
+        TantarianApplication.loadCategory(categoryId, holder.categoryTv)
+
+        // page number irrelevant in this context, so we will pass page number parameter as NULL
+        TantarianApplication.loadFromUrlSinglePage(pdfUrl, title, holder.pdfView, holder.progressBar, null)
+
+        // get pdf size
+        TantarianApplication.loadPdfSize(pdfUrl, title, holder.sizeTv)
     }
 
     override fun getItemCount(): Int {
         return pdfArrayList.size
     }
 
+    override fun getFilter(): Filter {
+        if (filter == null) {
+            filter = FilterPdfAdmin(filterList, this)
+        }
+        return filter as FilterPdfAdmin
+    }
+        inner class HolderPdfAdmin(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            // PDF UI
+            val pdfView = binding.pdfView
+            val progressBar  = binding.progressBar
+            val titleTv = binding.titleTv
+            val descriptionTv = binding.descriptionTv
+            val categoryTv = binding.categoryTv
+            val sizeTv = binding.sizeTv
+            val dateTv = binding.dateTv
+            val moreBtn = binding.moreBtn
+        }
 }
