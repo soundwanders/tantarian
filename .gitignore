@@ -1,6 +1,7 @@
 *.iml
 .gradle
 /local.properties
+/.navigation
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
@@ -13,4 +14,98 @@
 .externalNativeBuild
 .cxx
 local.properties
-Shortcut.lnk
+
+### Android ###
+# Built application files
+*.apk
+*.ap_
+*.aab
+
+# Generated files
+bin/
+gen/
+out/
+
+# Log Files
+*.log
+
+# IntelliJ
+*.iml
+.idea/tasks.xml
+.idea/gradle.xml
+
+# Google Services (e.g. APIs or Firebase)
+google-services.json
+
+### Android Patch ###
+gen-external-apklibs
+
+### AndroidStudio ###
+# Covers files to be ignored for android development using Android Studio.
+
+# Signing files
+.signing/
+
+# Android Studio
+/*/build/
+/*/local.properties
+/*/out
+/*/*/build
+/*/*/production
+*.ipr
+*~
+*.swp
+
+# IntelliJ IDEA
+*.iws
+/out/
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+### Intellij ###
+# User-specific paths
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# Generated files
+.idea/**/contentModel.xml
+
+# Sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+# Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# Package Files #
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+### Windows ###
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
