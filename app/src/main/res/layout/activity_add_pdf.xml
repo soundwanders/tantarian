@@ -43,7 +43,7 @@
             android:layout_below="@id/iconIv"
             android:textSize="26sp"
             android:textColor="@color/black"
-            android:fontFamily="sans-serif-black"/>
+            android:fontFamily="sans-serif-black" />
 
         <!-- Attach a PDF button -->
         <ImageButton
@@ -54,7 +54,7 @@
             android:layout_alignParentEnd="true"
             android:layout_margin="12dp"
             android:padding="6dp"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent" />
     </RelativeLayout>
 
     <com.google.android.material.textfield.TextInputLayout

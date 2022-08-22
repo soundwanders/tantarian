@@ -124,9 +124,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/forgotPasswordTv"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/shape_button04"
+                android:background="@drawable/shape_button01"
                 android:text="@string/login"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

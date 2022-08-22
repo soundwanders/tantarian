@@ -2,8 +2,8 @@
 <resources>
     <color name="peach_200">#FFF0D4</color>
     <color name="peach_500">#FFE7BA</color>
-    <color name="peach_700">#FFDEA0</color>
-    <color name="peach_900">#FFD079</color>
+    <color name="peach_700">#FFD587</color>
+    <color name="peach_900">#FFC354</color>
     <color name="teal_200">#BAD2FF</color>
     <color name="teal_700">#87B1FF</color>
     <color name="black">#FF000000</color>

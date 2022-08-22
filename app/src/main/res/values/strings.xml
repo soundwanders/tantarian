@@ -41,4 +41,9 @@
     <string name="add_new_book">Add a New Book</string>
     <string name="edit_book">Edit Book</string>
     <string name="save_and_update"><![CDATA[Save & Update]]></string>
+    <string name="book_details">Book Details</string>
+    <string name="not_applicable">N/A</string>
+    <string name="date">Date</string>
+    <string name="downloads">Downloads</string>
+    <string name="pages">Pages</string>
 </resources>
