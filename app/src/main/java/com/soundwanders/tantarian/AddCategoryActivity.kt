@@ -21,7 +21,6 @@ class AddCategoryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
         binding = ActivityAddCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -58,12 +57,13 @@ class AddCategoryActivity : AppCompatActivity() {
 
         val timestamp = System.currentTimeMillis()
 
-        // create hashmap, data for new category firebase store
+        // create hashmap for firebase data
+        // set p2 to Any because value could be of any type
         val hashMap = HashMap<String, Any>()
-        hashMap["timestamp"] = timestamp
         hashMap["id"] = "$timestamp"
         hashMap["uid"] = "${firebaseAuth.uid}"
         hashMap["category"] = category
+        hashMap["timestamp"] = timestamp
 
         // send data to db
         val ref = FirebaseDatabase.getInstance().getReference("Categories")
@@ -71,13 +71,13 @@ class AddCategoryActivity : AppCompatActivity() {
             .setValue(hashMap)
             .addOnSuccessListener {
                 progressDialog.dismiss()
-                Toast.makeText(this, "Added category!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Added a new category!", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener { e ->
                 progressDialog.dismiss()
                 Toast.makeText(
                     this,
-                    "Failed to add category - ${e.message}",
+                    "Failed to add category due to ${e.message}",
                     Toast.LENGTH_SHORT
                 ).show()
             }
