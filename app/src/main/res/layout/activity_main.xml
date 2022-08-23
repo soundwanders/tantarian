@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/iconIv"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:text="@string/welcome"
         android:textColor="@color/peach_700"
         android:textSize="20sp" />

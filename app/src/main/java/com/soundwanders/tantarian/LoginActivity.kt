@@ -40,6 +40,10 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
         binding.loginBtn.setOnClickListener {
             validateData()
         }

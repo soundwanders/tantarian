@@ -64,7 +64,7 @@
                 app:hintEnabled="false"
                 android:autofillHints="false">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/titleEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                 app:hintEnabled="false"
                 android:autofillHints="false">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/descriptionEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -11,49 +11,50 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="6dp"
+        android:layout_marginBottom="12dp"
     >
         <RelativeLayout
             android:id="@+id/pdfRl"
-            android:layout_width="100dp"
+            android:layout_width="110dp"
             android:layout_height="140dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="10dp"
             android:background="@color/gray02"
         >
             <com.github.barteksc.pdfviewer.PDFView
                 android:id="@+id/pdfView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-            />
+                android:layout_height="match_parent" />
 
             <!-- Progress Bar -->
             <ProgressBar
                 android:id="@+id/progressBar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-            />
+                android:layout_height="match_parent" />
         </RelativeLayout>
-        
+
         <TextView
             android:id="@+id/titleTv"
-            android:layout_width="match_parent"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="278dp"
             android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/moreBtn"
             android:layout_toEndOf="@id/pdfRl"
-            android:maxLines="1"
-            android:text="@string/book_title"
             android:ellipsize="end"
-        />
+            android:maxLines="1"
+            android:text="@string/book_title" />
 
         <TextView
             android:id="@+id/descriptionTv"
-            style="@style/TextAppearance.MaterialComponents.Body1"
+            style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/titleTv"
-            android:layout_marginTop="8dp"
-            android:maxLines="4"
-            android:text="@string/book_description"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@id/pdfRl"
             android:ellipsize="end"
-        />
+            android:maxLines="4"
+            android:text="@string/book_description" />
 
         <TextView
             android:id="@+id/categoryTv"
@@ -64,9 +65,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginTop="8dp"
             android:maxLines="1"
-            android:text="@string/category"
-            android:ellipsize="end"
-        />
+            android:text="@string/category" />
 
         <TextView
             android:id="@+id/sizeTv"
@@ -75,8 +74,7 @@
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@id/pdfRl"
             android:maxLines="1"
-            android:text="@string/file_size"
-        />
+            android:text="@string/file_size" />
 
         <TextView
             android:id="@+id/dateTv"
@@ -84,12 +82,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@id/categoryTv"
             android:layout_toEndOf="@id/sizeTv"
             android:layout_marginStart="6dp"
             android:maxLines="1"
             android:text="@string/date_format"
-            android:textAlignment="center"
-        />
+            android:textAlignment="center" />
 
         <ImageButton
             android:id="@+id/moreBtn"
@@ -97,9 +95,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:padding="5dp"
-            android:background="@android:color/transparent"
             android:src="@drawable/ic_view_more_black"
-            android:contentDescription="@string/view_more"
-        />
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/view_more" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

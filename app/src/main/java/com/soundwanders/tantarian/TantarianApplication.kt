@@ -101,6 +101,7 @@ class TantarianApplication:Application() {
                 Log.d(TAG, "loadPdfSize: Unable to retrieve file data due to ${e.message}.")
             }
         }
+
         fun loadCategory(categoryId: String, categoryTv: TextView) {
             // load category using its firebase-assigned id
             val ref = FirebaseDatabase.getInstance().getReference("Categories")

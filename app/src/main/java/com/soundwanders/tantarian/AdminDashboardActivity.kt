@@ -53,8 +53,13 @@ class AdminDashboardActivity : AppCompatActivity() {
             checkUser()
         }
 
+        // add a new category
         binding.addCategoryBtn.setOnClickListener {
             startActivity(Intent(this, AddCategoryActivity::class.java))
+        }
+
+        binding.addPdfFab.setOnClickListener {
+            startActivity(Intent(this, PdfAddActivity::class.java))
         }
     }
 

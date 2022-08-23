@@ -38,7 +38,7 @@ class PdfAddActivity : AppCompatActivity() {
         loadPdfCategories()
 
         progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Please wait :)")
+        progressDialog.setTitle("Gathering data...")
         progressDialog.setCanceledOnTouchOutside(false)
 
         binding.backBtn.setOnClickListener() {
@@ -50,7 +50,7 @@ class PdfAddActivity : AppCompatActivity() {
         }
 
         binding.attachPdfBtn.setOnClickListener() {
-            pdfChooseIntent()
+            pdfPickIntent()
         }
 
         binding.submitBtn.setOnClickListener {
@@ -70,7 +70,7 @@ class PdfAddActivity : AppCompatActivity() {
         description = binding.descriptionEt.text.toString().trim()
         category = binding.categoryTv.text.toString().trim()
 
-        // then validate the data recv'd
+        // then validate the data received
        if (title.isEmpty()) {
            Toast.makeText(this, "Enter title.", Toast.LENGTH_SHORT).show()
        }
@@ -96,13 +96,15 @@ class PdfAddActivity : AppCompatActivity() {
         progressDialog.show()
 
         val timestamp = System.currentTimeMillis()
-        val fileNameAndPath = "Books/$timestamp"
-        val storageReference = FirebaseStorage.getInstance().getReference(fileNameAndPath)
+        val filePathAndName = "Books/$timestamp"
+
+        val storageReference = FirebaseStorage.getInstance().getReference(filePathAndName)
 
         storageReference.putFile(pdfUri!!)
             .addOnSuccessListener { taskSnapshot ->
                 Log.d(TAG, "uploadPdf: Uploaded Pdf, generating url")
 
+                // get url of uploaded Pdf
                 val uriTask: Task<Uri> = taskSnapshot.storage.downloadUrl
                 while (!uriTask.isSuccessful);
                 val storedPdfUrl = "${uriTask.result}"
@@ -136,7 +138,6 @@ class PdfAddActivity : AppCompatActivity() {
         val ref = FirebaseDatabase.getInstance().getReference("Books")
         ref.child("$timestamp")
             .setValue(hashMap)
-
             .addOnSuccessListener {
                 Log.d(TAG, "uploadPdf: Uploaded Pdf, generating url...")
                 progressDialog.dismiss()
@@ -192,6 +193,8 @@ class PdfAddActivity : AppCompatActivity() {
             .setItems(categoriesArray) {dialog, which ->
                 selectedCategoryId = categoryArrayList[which].id
                 selectedCategoryTitle = categoryArrayList[which].category
+
+                // bind to enable render of category in textview UI
                 binding.categoryTv.text = selectedCategoryTitle
 
                 Log.d(TAG, "categorySelectDialog: Selected Category ID: $selectedCategoryId")
@@ -200,7 +203,7 @@ class PdfAddActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun pdfChooseIntent() {
+    private fun pdfPickIntent() {
         Log.d(TAG, "pdfChooseIntent: Starting Pdf choose Intent")
 
         val intent = Intent()
@@ -220,7 +223,6 @@ class PdfAddActivity : AppCompatActivity() {
                 Log.d(TAG, "Pdf Deselected")
                 Toast.makeText(this, "Deselected", Toast.LENGTH_SHORT).show()
             }
-
         }
     )
 

@@ -50,11 +50,16 @@
             android:id="@+id/attachPdfBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_attach_black"
             android:layout_alignParentEnd="true"
-            android:layout_margin="12dp"
-            android:padding="6dp"
-            android:background="@android:color/transparent" />
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:src="@drawable/ic_attach_black"
+            android:contentDescription="@string/add_pdf" />
+
     </RelativeLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -67,7 +72,7 @@
         app:hintEnabled="false"
         android:autofillHints="false">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/titleEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,7 +100,8 @@
         app:hintEnabled="false"
         android:autofillHints="false">
 
-        <EditText
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/descriptionEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
