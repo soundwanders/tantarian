@@ -18,8 +18,11 @@
             android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/ic_back_black"
-            android:layout_margin="12dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/back" />
 
@@ -45,9 +48,9 @@
             android:textColor="@color/black"
             android:fontFamily="sans-serif-black" />
 
-        <!-- Attach a PDF button -->
+        <!-- Upload Pdf -->
         <ImageButton
-            android:id="@+id/attachPdfBtn"
+            android:id="@+id/attachPdfBtnIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -106,8 +109,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_edittext01"
-            android:drawableStart="@drawable/ic_pdf_gray"
-            android:hint="@string/book_category"
+            android:drawableStart="@drawable/ic_text_details_gray"
+            android:hint="@string/book_description"
             android:drawablePadding="10dp"
             android:inputType="textPersonName|textCapWords"
             android:padding="10dp"
@@ -136,11 +139,30 @@
         android:textColorHint="@color/gray01"
         android:textSize="16sp" />
 
+    <!-- Upload Pdf ** TextView -->
+    <TextView
+        android:id="@+id/attachPdfBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/categoryTv"
+        android:background="@drawable/shape_edittext01"
+        app:drawableStartCompat="@drawable/ic_pdf_gray"
+        app:drawableEndCompat="@drawable/ic_down_gray"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:hint="@string/add_pdf"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray01"
+        android:textSize="16sp" />
+
         <Button
             android:id="@+id/submitBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/categoryTv"
+            android:layout_below="@id/attachPdfBtn"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginTop="10dp"

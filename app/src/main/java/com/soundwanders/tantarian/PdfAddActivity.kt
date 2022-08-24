@@ -7,6 +7,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
@@ -41,15 +42,19 @@ class PdfAddActivity : AppCompatActivity() {
         progressDialog.setTitle("Gathering data...")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        binding.backBtn.setOnClickListener() {
+        binding.backBtn.setOnClickListener {
             onBackPressed()
         }
 
-        binding.categoryTv.setOnClickListener() {
+        binding.categoryTv.setOnClickListener {
             categorySelectDialog()
         }
 
-        binding.attachPdfBtn.setOnClickListener() {
+        binding.attachPdfBtn.setOnClickListener {
+            pdfPickIntent()
+        }
+
+        binding.attachPdfBtnIcon.setOnClickListener {
             pdfPickIntent()
         }
 
@@ -147,7 +152,7 @@ class PdfAddActivity : AppCompatActivity() {
             .addOnFailureListener { e->
                 Log.d(TAG, "uploadPdf: Failed to upload Pdf due to ${e.message}")
                 progressDialog.dismiss()
-                Toast.makeText(this, "Failed to upload Pdf due to ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Failed due to ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 
@@ -218,6 +223,8 @@ class PdfAddActivity : AppCompatActivity() {
             if (result.resultCode == RESULT_OK) {
                 Log.d(TAG, "Pdf Selected")
                 pdfUri = result.data!!.data
+                val text = findViewById<TextView>(R.id.attachPdfBtn)
+                text.text = "Your File Has Been Attached!"
             }
             else {
                 Log.d(TAG, "Pdf Deselected")
@@ -225,5 +232,4 @@ class PdfAddActivity : AppCompatActivity() {
             }
         }
     )
-
 }

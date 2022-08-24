@@ -9,6 +9,7 @@
     app:cardCornerRadius="10dp"
     android:elevation="0dp"
     android:background="@color/white"
+    android:backgroundTint="@color/white"
 >
 
     <LinearLayout
@@ -16,7 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:orientation="horizontal"
-    >
+        android:background="@color/white"
+        android:backgroundTint="@color/white" >
         <TextView
             android:id="@+id/categoryTv"
             android:layout_width="0dp"
@@ -24,7 +26,9 @@
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:text="@string/category_name"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:background="@drawable/shape_edittext01"
+            android:backgroundTint="@color/white" />
 
         <ImageButton
             android:id="@+id/deleteBtn"

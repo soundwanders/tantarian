@@ -32,8 +32,10 @@
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
         android:layout_above="@id/skipBtn"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="5dp"
+       android:layout_marginEnd="5dp"
         android:background="@drawable/shape_button01"
         android:text="@string/login"
         android:textColor="@color/black" />
@@ -44,6 +46,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="15dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:background="@drawable/shape_button02"
         android:text="@string/continue_without_login"
         android:textColor="@color/peach_200" />

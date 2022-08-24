@@ -2,13 +2,14 @@
     <!-- Generic Strings -->
     <string name="app_name">Tantarian</string>
     <string name="welcome">Welcome to <b>Tantarian</b></string>
-    <string name="test_user">user@tantarian</string>
+    <string name="admin_dashboard">Admin Dashboard</string>
+    <string name="user_dashboard">Admin Dashboard</string>
 
     <!-- Sign Up / Log In -->
     <string name="login">Log In</string>
     <string name="request_sign_up">No Account? Sign Up!</string>
     <string name="continue_without_login">Continue without login</string>
-    <string name="request_user_login">Welcome Back!</string>
+    <string name="request_user_login">Welcome!</string>
     <string name="create_account">Create an Account</string>
     <string name="register_user">Sign Up!</string>
     <string name="name">Name</string>
@@ -32,7 +33,7 @@
     <string name="category_title">Category Title</string>
     <string name="add_category">+ Add Category</string>
     <string name="add_new_category">Add a New Category</string>
-    <string name="add_pdf">Add Pdf</string>
+    <string name="add_pdf">Upload Pdf</string>
     <string name="book_title">Title</string>
     <string name="book_description">Description</string>
     <string name="book_category">Category/Genre</string>

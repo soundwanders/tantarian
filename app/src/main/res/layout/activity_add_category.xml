@@ -12,7 +12,7 @@
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="240dp"
         android:background="@drawable/shape_toolbar01"
     >
 
@@ -24,10 +24,9 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@android:color/transparent"
             android:contentDescription="@string/back"
-            android:padding="5dp"
-            android:src="@drawable/ic_back_black" />
+            android:src="@drawable/ic_back_black"
+            android:background="@android:color/transparent" />
 
         <ImageView
             android:id="@+id/iconIv"
@@ -43,12 +42,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/iconIv"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:padding="6dp"
-            android:fontFamily="sans-serif-black"
-            android:textSize="18sp"
+            android:layout_marginTop="12dp"
             android:text="@string/add_new_category"
+            android:textSize="26sp"
             android:textColor="@color/black"
+            android:fontFamily="sans-serif-black" />
             android:scrollbarSize="28sp" />
     </RelativeLayout>
 
@@ -59,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginTop="275dp"
+            android:layout_marginTop="290dp"
             app:hintEnabled="false"
         >
 
@@ -71,12 +69,11 @@
                 android:background="@drawable/shape_edittext01"
                 android:drawableStart="@drawable/ic_category_gray"
                 android:drawablePadding="10dp"
-                android:hint="@string/category_title"
+                android:hint="@string/category"
                 android:inputType="textPersonName|textCapSentences"
                 android:padding="10dp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textColorHint="@color/gray01" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
     <Button

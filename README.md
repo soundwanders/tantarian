@@ -1,3 +1,5 @@
 # tantarian
 
-Building a small library app with Kotlin
+work in progress...
+
+full-stack Android app built with Kotlin

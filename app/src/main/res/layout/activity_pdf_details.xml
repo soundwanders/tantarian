@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:text="@string/book_details"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -57,7 +58,7 @@
                     android:layout_width="105dp"
                     android:layout_height="145dp"
                     android:layout_marginEnd="5dp"
-                    android:background="@color/gray02" >
+                    android:background="@color/gray01" >
 
                     <com.github.barteksc.pdfviewer.PDFView
                         android:id="@+id/pdfView"
@@ -72,18 +73,19 @@
                 </RelativeLayout>
 
                 <TextView
-                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    style="@style/TextAppearance.MaterialComponents.Headline5"
                     android:id="@+id/titleTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/pdfRl"
-                    android:text="@string/book_title" />
+                    android:text="@string/book_title"
+                    android:textColor="@color/white"/>
 
                 <TableLayout
-                    android:id="@id/titleTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/pdfRl" />
+                    android:layout_toEndOf="@id/pdfRl"
+                    android:layout_below="@id/titleTv">
 
                     <!-- Category Row -->
                     <TableRow>
@@ -93,7 +95,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
-                            android:text="@string/date" />
+                            android:text="@string/date"
+                            android:textColor="@color/white" />
 
                         <TextView
                             style="@style/TextAppearance.MaterialComponents.Caption"
@@ -102,7 +105,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginEnd="5dp"
-                            android:text="@string/not_applicable" />
+                            android:text="@string/not_applicable"
+                            android:textColor="@color/gray01" />
                     </TableRow>
 
                 <!-- Date Row -->
@@ -113,7 +117,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:text="@string/category" />
+                        android:text="@string/category"
+                        android:textColor="@color/white"/>
 
                     <TextView
                         style="@style/TextAppearance.MaterialComponents.Caption"
@@ -122,7 +127,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginEnd="5dp"
-                        android:text="@string/not_applicable" />
+                        android:text="@string/not_applicable"
+                        android:textColor="@color/gray01" />
                 </TableRow>
 
                 <!-- File Size Row -->
@@ -133,7 +139,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:text="@string/file_size" />
+                        android:text="@string/file_size"
+                        android:textColor="@color/white" />
 
                     <TextView
                         style="@style/TextAppearance.MaterialComponents.Caption"
@@ -141,7 +148,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:text="@string/not_applicable" />
+                        android:text="@string/not_applicable"
+                        android:textColor="@color/gray01" />
                 </TableRow>
 
                 <!-- View Count Row -->
@@ -152,7 +160,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:text="@string/file_size" />
+                        android:text="@string/file_size"
+                        android:textColor="@color/white" />
 
                     <TextView
                         style="@style/TextAppearance.MaterialComponents.Caption"
@@ -160,7 +169,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:text="@string/not_applicable" />
+                        android:text="@string/not_applicable"
+                        android:textColor="@color/gray01" />
                 </TableRow>
 
                 <!-- Download Count Row -->
@@ -171,7 +181,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:text="@string/downloads" />
+                        android:text="@string/downloads"
+                        android:textColor="@color/white" />
 
                     <TextView
                         style="@style/TextAppearance.MaterialComponents.Caption"
@@ -179,7 +190,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:text="@string/not_applicable" />
+                        android:text="@string/not_applicable"
+                        android:textColor="@color/gray01"/>
                 </TableRow>
 
                 <!-- Page Count Row -->
@@ -190,7 +202,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:text="@string/pages" />
+                        android:text="@string/pages"
+                        android:textColor="@color/white" />
 
                     <TextView
                         style="@style/TextAppearance.MaterialComponents.Caption"
@@ -198,8 +211,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:text="@string/not_applicable" />
+                        android:text="@string/not_applicable"
+                        android:textColor="@color/gray01" />
                 </TableRow>
+            </TableLayout>
 
             </RelativeLayout>
 
@@ -208,9 +223,9 @@
                 android:id="@+id/descriptionTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/book_description"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
         </LinearLayout>
     </ScrollView>

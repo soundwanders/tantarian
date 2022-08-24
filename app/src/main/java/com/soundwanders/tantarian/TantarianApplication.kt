@@ -17,6 +17,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storageMetadata
 import java.util.*
+import kotlin.collections.HashMap
 
 class TantarianApplication:Application() {
     override fun onCreate() {
@@ -177,6 +178,33 @@ class TantarianApplication:Application() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+        }
+
+        fun incrementBookViewCount(bookId: String) {
+            val ref = FirebaseDatabase.getInstance().getReference("Books")
+            ref.child(bookId)
+                .addListenerForSingleValueEvent(object: ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        var viewsCount = "${snapshot.child("viewsCount").value}"
+
+                        if (viewsCount == "" || viewsCount == "null") {
+                            viewsCount = "0"
+                        }
+
+                        // increment views count +1
+                        val newViewsCount = viewsCount.toLong() + 1
+                        val hashMap = HashMap<String, Any>()
+                        hashMap["viewsCount"] = newViewsCount
+
+                        // set to database
+                        val databaseRef = FirebaseDatabase.getInstance().getReference("Books")
+                        databaseRef.child(bookId).updateChildren(hashMap)
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        TODO("Not yet implemented")
+                    }
+                })
         }
     }
 }
