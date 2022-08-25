@@ -2,7 +2,6 @@ package com.soundwanders.tantarian
 import android.widget.Filter
 
 class FilterCategory: Filter {
-
     private var filterList: ArrayList<ModelCategory>
 
     private var adapterCategory: AdapterCategory
@@ -13,17 +12,16 @@ class FilterCategory: Filter {
     }
 
     override fun performFiltering(constraint: CharSequence?) : FilterResults {
-        var constraint = constraint
+        var charConstraint = constraint
         val results = FilterResults()
 
-        if (constraint != null && constraint.isNotEmpty()) {
+        if (charConstraint != null && charConstraint.isNotEmpty()) {
+            charConstraint = charConstraint.toString().uppercase()
 
-            constraint = constraint.toString()
             val filteredModels:ArrayList<ModelCategory> = ArrayList()
-
             // eliminate case sensitivity
             for (i in 0 until filterList.size) {
-                if (filterList[i].category.uppercase().contains(constraint)) {
+                if (filterList[i].category.uppercase().contains(charConstraint)) {
                     filteredModels.add(filterList[i])
                 }
             }
@@ -38,9 +36,9 @@ class FilterCategory: Filter {
     }
 
     override fun publishResults(constraint: CharSequence?, results: FilterResults) {
-        adapterCategory.categoryArrayList
+        adapterCategory.categoryArrayList = results.values as ArrayList<ModelCategory>
 
-        // It will always be more efficient to use specific change events if you can
+        // it will always be more efficient to use specific change events where possible,
         // Rely on `notifyDataSetChanged` as a last resort
         adapterCategory.notifyDataSetChanged()
     }

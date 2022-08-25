@@ -31,19 +31,17 @@ class AdminDashboardActivity : AppCompatActivity() {
 
         binding.searchEt.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
             }
 
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 try {
                     adapterCategory.filter.filter(s)
                 } catch (e: Exception) {
-
+                    // add error handling
                 }
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                TODO("Not yet implemented")
             }
         })
 

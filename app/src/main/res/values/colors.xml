@@ -13,4 +13,5 @@
     <color name="gray03">#F2F2F2</color>
     <color name="red_200">#FF6961</color>
     <color name="red_500">#FF5A5F</color>
+    <color name="green_confirm">#CDF4D5</color>
 </resources>

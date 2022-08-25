@@ -28,6 +28,14 @@ class PdfEditActivity : AppCompatActivity() {
 
     private lateinit var progressDialog: ProgressDialog
 
+    // for use in categoryDialog function
+    private var selectedCategoryId = ""
+    private var selectedCategoryTitle = ""
+
+    // for use in validateData function
+    private var title = ""
+    private var description = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPdfEditBinding.inflate(layoutInflater)
@@ -40,9 +48,6 @@ class PdfEditActivity : AppCompatActivity() {
         progressDialog.setTitle("One moment please...")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        loadCategories()
-        loadBookInfo()
-
         binding.backBtn.setOnClickListener {
             onBackPressed()
         }
@@ -54,10 +59,10 @@ class PdfEditActivity : AppCompatActivity() {
         binding.submitBtn.setOnClickListener {
             validateData()
         }
-    }
 
-    private var selectedCategoryId = ""
-    private var selectedCategoryTitle = ""
+        loadCategories()
+        loadBookInfo()
+    }
 
     private fun categoryDialog() {
         val categoriesArray = arrayOfNulls<String>(categoryTitleArrayList.size)
@@ -69,7 +74,7 @@ class PdfEditActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Select Category")
             .setItems(categoriesArray){ dialog, position ->
-                // save category id and titel on click
+                // save category id and title on click
                 selectedCategoryId = categoryIdArrayList[position]
                 selectedCategoryTitle = categoryTitleArrayList[position]
 
@@ -117,9 +122,6 @@ class PdfEditActivity : AppCompatActivity() {
                 }
             })
     }
-
-    private var title = ""
-    private var description = ""
 
     private fun validateData() {
         // get data and convert to string so we can work with it
@@ -186,8 +188,8 @@ class PdfEditActivity : AppCompatActivity() {
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 // clear list before data is added
-                categoryTitleArrayList.clear()
                 categoryIdArrayList.clear()
+                categoryTitleArrayList.clear()
 
                 for (ds in snapshot.children) {
                     val id = "${ds.child("id").value}"

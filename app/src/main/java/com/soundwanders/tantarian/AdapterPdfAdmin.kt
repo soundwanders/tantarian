@@ -12,13 +12,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.soundwanders.tantarian.databinding.RowPdfAdminBinding
 
 class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Filterable{
+    private lateinit var binding:RowPdfAdminBinding
     private var context: Context
 
-    // pdfArrayList is public
+    // set pdfArrayList as public to allow access by FilterPdfAdmin Activity
     var pdfArrayList: ArrayList<ModelPdf>
 
     private val filterList: ArrayList<ModelPdf>
-    private lateinit var binding:RowPdfAdminBinding
     private var filter: FilterPdfAdmin? = null
 
     constructor(context: Context, pdfArrayList: ArrayList<ModelPdf>) : super() {
@@ -29,7 +29,6 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderPdfAdmin {
         binding = RowPdfAdminBinding.inflate(LayoutInflater.from(context), parent, false)
-
         return HolderPdfAdmin(binding.root)
     }
 
@@ -89,6 +88,7 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
                     TantarianApplication.deleteBook(context, bookId, bookUrl, bookTitle)
                 }
             }
+            .show()
     }
 
     override fun getItemCount(): Int {
@@ -101,15 +101,16 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
         }
         return filter as FilterPdfAdmin
     }
-        inner class HolderPdfAdmin(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            // PDF UI
-            val pdfView = binding.pdfView
-            val progressBar  = binding.progressBar
-            val titleTv = binding.titleTv
-            val descriptionTv = binding.descriptionTv
-            val categoryTv = binding.categoryTv
-            val sizeTv = binding.sizeTv
-            val dateTv = binding.dateTv
-            val moreBtn = binding.moreBtn
-        }
+
+    inner class HolderPdfAdmin(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        // PDF UI
+        val pdfView = binding.pdfView
+        val progressBar  = binding.progressBar
+        val titleTv = binding.titleTv
+        val descriptionTv = binding.descriptionTv
+        val categoryTv = binding.categoryTv
+        val sizeTv = binding.sizeTv
+        val dateTv = binding.dateTv
+        val moreBtn = binding.moreBtn
+    }
 }

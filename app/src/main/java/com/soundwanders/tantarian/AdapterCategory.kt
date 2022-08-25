@@ -95,7 +95,7 @@ class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
         if (filter == null) {
             filter = FilterCategory(filterList, this)
         }
-        return filter as Filter
+        return filter as FilterCategory
     }
 
 }

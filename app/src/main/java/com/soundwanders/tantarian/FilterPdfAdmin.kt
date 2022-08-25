@@ -3,7 +3,7 @@ package com.soundwanders.tantarian
 import android.widget.Filter
 
 class FilterPdfAdmin : Filter {
-    var filterList: ArrayList<ModelPdf>
+    private var filterList: ArrayList<ModelPdf>
 
     var adapterPdfAdmin: AdapterPdfAdmin
 
@@ -13,14 +13,14 @@ class FilterPdfAdmin : Filter {
     }
 
     override fun performFiltering(constraint: CharSequence?): FilterResults {
-        var constraint: CharSequence? = constraint
+        var charConstraint:CharSequence? = constraint
         val results = FilterResults()
 
-        if (constraint != null && constraint.isNotEmpty()) {
-                constraint = constraint.toString().lowercase()
+        if (charConstraint != null && charConstraint.isNotEmpty()) {
+            charConstraint = charConstraint.toString().lowercase()
                 var filteredModels = ArrayList<ModelPdf>()
                 for (i in filterList.indices) {
-                    if (filterList[i].title.lowercase().contains(constraint)) {
+                    if (filterList[i].title.lowercase().contains(charConstraint)) {
                         filteredModels.add(filterList[i])
                     }
                 }
@@ -35,6 +35,10 @@ class FilterPdfAdmin : Filter {
     }
 
     override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-        TODO("Not yet implemented")
+        adapterPdfAdmin.pdfArrayList = results!!.values as ArrayList<ModelPdf>
+
+        // it will always be more efficient to use specific change events where possible,
+        // Rely on `notifyDataSetChanged` as a last resort
+        adapterPdfAdmin.notifyDataSetChanged()
     }
 }

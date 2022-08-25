@@ -46,13 +46,13 @@ class TantarianApplication:Application() {
                     val kb = bytes/1024
                     val mb = kb/1024
                     if (mb > 1) {
-                        sizeTv.text = "${String.format("$.2f", mb)} Mb"
+                        sizeTv.text = "${String.format("%.2f", mb)} mb"
                     }
                     else if (kb >= 1) {
-                        sizeTv.text = "${String.format("$.2f", kb)} Kb"
+                        sizeTv.text = "${String.format("%.2f", kb)} kb"
                     }
                     else {
-                        sizeTv.text = "${String.format("$.2f", bytes)} bytes"
+                        sizeTv.text = "${String.format("%.2f", bytes)} bytes"
                     }
                 }
                 .addOnFailureListener { e ->
@@ -133,11 +133,11 @@ class TantarianApplication:Application() {
 
             val TAG = "DELETE_BOOK_TAG"
 
-            Log.d(TAG, "deleteBook: Deleting selected book")
+            Log.d(TAG, "deleteBook: $bookTitle deleted.")
 
             val progressDialog = ProgressDialog(context)
             progressDialog.setTitle("One moment please...")
-            progressDialog.setMessage("Deleting ${bookTitle}")
+            progressDialog.setMessage("Deleting $bookTitle...")
             progressDialog.setCanceledOnTouchOutside(false)
             progressDialog.show()
 

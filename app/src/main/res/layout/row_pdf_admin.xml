@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="140dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginBottom="5dp"
+    android:layout_marginBottom="8dp"
     app:cardElevation="0dp"
     app:contentPadding="5dp"
+    app:cardBackgroundColor="@color/black"
 >
 
     <RelativeLayout
@@ -13,12 +14,13 @@
         android:layout_height="match_parent"
         android:layout_margin="6dp"
         android:layout_marginBottom="12dp"
+        android:background="@color/black"
     >
         <RelativeLayout
             android:id="@+id/pdfRl"
             android:layout_width="110dp"
             android:layout_height="140dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="20dp"
             android:background="@color/gray02"
         >
             <com.github.barteksc.pdfviewer.PDFView
@@ -42,11 +44,13 @@
             android:layout_toEndOf="@id/pdfRl"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@string/book_title" />
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="@string/book_title"/>
 
         <TextView
             android:id="@+id/descriptionTv"
-            style="@style/TextAppearance.MaterialComponents.Body2"
+            style="@style/TextAppearance.MaterialComponents.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/titleTv"
@@ -54,7 +58,8 @@
             android:layout_toEndOf="@id/pdfRl"
             android:ellipsize="end"
             android:maxLines="4"
-            android:text="@string/book_description" />
+            android:text="@string/book_description"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/categoryTv"
@@ -65,16 +70,19 @@
             android:layout_alignParentBottom="true"
             android:layout_marginTop="8dp"
             android:maxLines="1"
-            android:text="@string/category" />
+            android:text="@string/category"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/sizeTv"
+            style="@style/TextAppearance.AppCompat.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@id/pdfRl"
             android:maxLines="1"
-            android:text="@string/file_size" />
+            android:text="@string/file_size"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/dateTv"
@@ -82,12 +90,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="6dp"
             android:layout_toStartOf="@id/categoryTv"
             android:layout_toEndOf="@id/sizeTv"
-            android:layout_marginStart="6dp"
             android:maxLines="1"
             android:text="@string/date_format"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@color/white" />
 
         <ImageButton
             android:id="@+id/moreBtn"
@@ -95,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:padding="5dp"
-            android:src="@drawable/ic_view_more_black"
+            android:src="@drawable/ic_view_more_white"
             android:background="@android:color/transparent"
             android:contentDescription="@string/view_more" />
     </RelativeLayout>
