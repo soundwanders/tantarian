@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back01"
+    android:background="@color/black"
     tools:context=".PdfDetailsActivity">
 
     <RelativeLayout
@@ -33,14 +33,14 @@
             android:layout_centerVertical="true"
             android:textColor="@color/black"
             android:textStyle="bold" />
-
     </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_below="@id/toolbarRl" >
+        android:layout_above="@id/bookOptionsLl"
+        android:layout_below="@id/toolbarRl"
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,7 +58,7 @@
                     android:layout_width="105dp"
                     android:layout_height="145dp"
                     android:layout_marginEnd="5dp"
-                    android:background="@color/gray01" >
+                    android:background="@color/gray01">
 
                     <com.github.barteksc.pdfviewer.PDFView
                         android:id="@+id/pdfView"
@@ -73,25 +73,26 @@
                 </RelativeLayout>
 
                 <TextView
-                    style="@style/TextAppearance.MaterialComponents.Headline5"
                     android:id="@+id/titleTv"
+                    style="@style/TextAppearance.MaterialComponents.Headline5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/pdfRl"
                     android:text="@string/book_title"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white" />
 
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/pdfRl"
-                    android:layout_below="@id/titleTv">
+                    android:layout_below="@id/titleTv"
+                    android:layout_toEndOf="@id/pdfRl">
 
                     <!-- Category Row -->
                     <TableRow>
+
                         <TextView
-                            style="@style/TextAppearance.MaterialComponents.Caption"
                             android:id="@+id/categoryLabelTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
@@ -99,122 +100,127 @@
                             android:textColor="@color/gray01" />
 
                         <TextView
-                            style="@style/TextAppearance.MaterialComponents.Caption"
                             android:id="@+id/categoryTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
                             android:layout_weight="1"
+                            android:text="@string/not_applicable"
+                            android:textColor="@color/white" />
+                    </TableRow>
+
+                    <!-- Date Row -->
+                    <TableRow android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/dateLabelTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/date"
+                            android:textColor="@color/gray01" />
+
+                        <TextView
+                            android:id="@+id/dateTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:text="@string/not_applicable"
+                            android:textColor="@color/white" />
+                    </TableRow>
+
+                    <!-- File Size Row -->
+                    <TableRow android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/sizeLabelTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/file_size"
+                            android:textColor="@color/gray01" />
+
+                        <TextView
+                            android:id="@+id/sizeTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
                             android:text="@string/not_applicable"
                             android:textColor="@color/white" />
                     </TableRow>
 
-                <!-- Date Row -->
-                <TableRow android:layout_marginTop="5dp" >
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Caption"
-                        android:id="@+id/dateLabelTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:text="@string/date"
-                        android:textColor="@color/gray01"/>
+                    <!-- View Count Row -->
+                    <TableRow android:layout_marginTop="5dp">
 
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Caption"
-                        android:id="@+id/dateTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="5dp"
-                        android:text="@string/not_applicable"
-                        android:textColor="@color/white" />
-                </TableRow>
+                        <TextView
+                            android:id="@+id/viewsLabelTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/views"
+                            android:textColor="@color/gray01" />
 
-                <!-- File Size Row -->
-                <TableRow android:layout_marginTop="5dp" >
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Caption"
-                        android:id="@+id/sizeLabelTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:text="@string/file_size"
-                        android:textColor="@color/gray01" />
+                        <TextView
+                            android:id="@+id/viewsTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/not_applicable"
+                            android:textColor="@color/white" />
+                    </TableRow>
 
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Caption"
-                        android:id="@+id/sizeTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:text="@string/not_applicable"
-                        android:textColor="@color/white" />
-                </TableRow>
+                    <!-- Download Count Row -->
+                    <TableRow android:layout_marginTop="5dp">
 
-                <!-- View Count Row -->
-                <TableRow android:layout_marginTop="5dp" >
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Caption"
-                        android:id="@+id/viewsLabelTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:text="@string/views"
-                        android:textColor="@color/gray01" />
+                        <TextView
+                            android:id="@+id/downloadsLabelTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/downloads"
+                            android:textColor="@color/gray01" />
 
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Caption"
-                        android:id="@+id/viewsTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:text="@string/not_applicable"
-                        android:textColor="@color/white" />
-                </TableRow>
+                        <TextView
+                            android:id="@+id/downloadsTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/not_applicable"
+                            android:textColor="@color/white" />
+                    </TableRow>
 
-                <!-- Download Count Row -->
-                <TableRow android:layout_marginTop="5dp" >
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Caption"
-                        android:id="@+id/downloadsLabelTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:text="@string/downloads"
-                        android:textColor="@color/gray01" />
+                    <!-- Page Count Row -->
+                    <TableRow android:layout_marginTop="5dp">
 
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Caption"
-                        android:id="@+id/downloadsTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:text="@string/not_applicable"
-                        android:textColor="@color/white"/>
-                </TableRow>
+                        <TextView
+                            android:id="@+id/pagesLabelTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/pages"
+                            android:textColor="@color/gray01" />
 
-                <!-- Page Count Row -->
-                <TableRow android:layout_marginTop="5dp" >
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Caption"
-                        android:id="@+id/pagesLabelTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:text="@string/pages"
-                        android:textColor="@color/gray01" />
-
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Caption"
-                        android:id="@+id/pagesTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:text="@string/not_applicable"
-                        android:textColor="@color/white" />
-                </TableRow>
-            </TableLayout>
+                        <TextView
+                            android:id="@+id/pagesTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/not_applicable"
+                            android:textColor="@color/white" />
+                    </TableRow>
+                </TableLayout>
 
             </RelativeLayout>
 
@@ -226,7 +232,26 @@
                 android:layout_marginTop="15dp"
                 android:text="@string/book_description"
                 android:textColor="@color/white" />
-
         </LinearLayout>
     </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/bookOptionsLl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:background="@color/peach_500" >
+
+            <Button
+                android:id="@+id/readBookBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/read"
+                android:textSize="16sp"
+                android:drawableTop="@drawable/ic_book_black"
+                android:layout_weight="1"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
 </RelativeLayout>

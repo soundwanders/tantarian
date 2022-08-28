@@ -224,7 +224,7 @@ class PdfAddActivity : AppCompatActivity() {
                 Log.d(TAG, "Pdf Selected")
                 pdfUri = result.data!!.data
                 val text = findViewById<TextView>(R.id.attachPdfBtn)
-                text.text = "Pdf Attached :)"
+                text.text = "Pdf Successfully Attached!"
             }
             else {
                 Log.d(TAG, "Pdf Deselected")

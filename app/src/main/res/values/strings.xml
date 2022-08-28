@@ -3,7 +3,7 @@
     <string name="app_name">Tantarian</string>
     <string name="welcome">Welcome to <b>Tantarian</b></string>
     <string name="admin_dashboard">Admin Dashboard</string>
-    <string name="user_dashboard">Admin Dashboard</string>
+    <string name="user_dashboard">User Dashboard</string>
 
     <!-- Sign Up / Log In -->
     <string name="login">Log In</string>
@@ -48,4 +48,6 @@
     <string name="downloads">Downloads</string>
     <string name="pages">Pages</string>
     <string name="views">Views</string>
+    <string name="read">Read</string>
+    <string name="reading_book">Read Book</string>
 </resources>

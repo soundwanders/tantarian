@@ -144,29 +144,29 @@
         android:id="@+id/attachPdfBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="5dp"
         android:layout_below="@id/categoryTv"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/shape_edittext01"
-        app:drawableStartCompat="@drawable/ic_pdf_gray"
-        app:drawableEndCompat="@drawable/ic_down_gray"
         android:drawablePadding="10dp"
-        android:padding="10dp"
         android:hint="@string/add_pdf"
+        android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray01"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        app:drawableEndCompat="@drawable/ic_down_gray"
+        app:drawableStartCompat="@drawable/ic_pdf_gray" />
 
-        <Button
-            android:id="@+id/submitBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/attachPdfBtn"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/submit"
-            android:textColor="@color/black" />
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/attachPdfBtn"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/submit"
+        android:textColor="@color/black" />
 
 </RelativeLayout>

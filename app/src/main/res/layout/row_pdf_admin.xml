@@ -37,20 +37,20 @@
 
         <TextView
             android:id="@+id/titleTv"
-            style="@style/TextAppearance.MaterialComponents.Headline5"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="278dp"
             android:layout_height="wrap_content"
             android:layout_toStartOf="@id/moreBtn"
             android:layout_toEndOf="@id/pdfRl"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textStyle="bold"
+            android:text="@string/book_title"
             android:textColor="@color/white"
-            android:text="@string/book_title"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/descriptionTv"
-            style="@style/TextAppearance.MaterialComponents.Body1"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/titleTv"
