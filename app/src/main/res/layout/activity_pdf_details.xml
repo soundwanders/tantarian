@@ -14,15 +14,16 @@
         android:layout_height="?actionBarSize"
         android:background="@drawable/shape_toolbar02"
     >
+
         <ImageButton
             android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back_black"
+            android:layout_centerVertical="true"
             android:layout_marginStart="12dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/back"
-            android:layout_centerVertical="true" />
+            android:src="@drawable/ic_back_black" />
 
         <!-- Title -->
         <TextView
@@ -40,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/bookOptionsLl"
         android:layout_below="@id/toolbarRl"
+        android:layout_marginTop="10dp"
         android:padding="10dp">
 
         <LinearLayout
@@ -74,7 +76,7 @@
 
                 <TextView
                     android:id="@+id/titleTv"
-                    style="@style/TextAppearance.MaterialComponents.Headline5"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/pdfRl"
@@ -237,6 +239,7 @@
 
         <LinearLayout
             android:id="@+id/bookOptionsLl"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -245,11 +248,27 @@
 
             <Button
                 android:id="@+id/readBookBtn"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/read"
                 android:textSize="16sp"
+                app:backgroundTint="@null"
+                android:background="@color/peach_500"
                 android:drawableTop="@drawable/ic_book_black"
+                android:layout_weight="1"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/downloadBookBtn"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/download"
+                android:textSize="16sp"
+                app:backgroundTint="@null"
+                android:background="@color/gray03"
+                android:drawableTop="@drawable/ic_download_black"
                 android:layout_weight="1"
                 android:textColor="@color/black" />
 

@@ -75,7 +75,8 @@
         android:inputType="text"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:textColorHint="@color/gray02" />
+        android:textColorHint="@color/gray02"
+        android:textCursorDrawable="@null" />
 
     <!-- Pdf Book List -->
     <androidx.recyclerview.widget.RecyclerView

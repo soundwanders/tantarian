@@ -87,7 +87,8 @@
             android:padding="10dp"
             android:textColor="@color/black"
             android:textColorHint="@color/gray01"
-            android:autofillHints="false" />
+            android:autofillHints="false"
+            android:textCursorDrawable="@null" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -116,7 +117,8 @@
             android:padding="10dp"
             android:textColor="@color/black"
             android:textColorHint="@color/gray01"
-            android:autofillHints="false" />
+            android:autofillHints="false"
+            android:textCursorDrawable="@null" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
