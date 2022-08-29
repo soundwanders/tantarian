@@ -201,7 +201,6 @@ class PdfEditActivity : AppCompatActivity() {
                     Log.d(TAG, "onDataChange: Category ID: $id")
                     Log.d(TAG, "onDataChange: Category Title: $category")
                 }
-
             }
 
             override fun onCancelled(error: DatabaseError) {

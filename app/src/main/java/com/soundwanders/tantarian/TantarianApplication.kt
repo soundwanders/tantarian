@@ -145,7 +145,7 @@ class TantarianApplication:Application() {
             val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(bookUrl)
             storageReference.delete()
                 .addOnSuccessListener {
-                    Log.d(TAG, "deleteBook: Permanently deleting selected book!")
+                    Log.d(TAG, "deleteBook: Permanently deleting $bookTitle")
                     Log.d(TAG, "deleteBook: Deleting book from Cloud storage")
 
                     val ref = FirebaseDatabase.getInstance().getReference("Books")
@@ -157,7 +157,7 @@ class TantarianApplication:Application() {
                         .addOnSuccessListener {
                             progressDialog.dismiss()
                             Log.d(TAG, "deleteBook: Successfully deleted and removed book from database")
-                            Toast.makeText(context, "Successfully deleted...forever!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Successfully deleted $bookTitle", Toast.LENGTH_SHORT).show()
                         }
                         .addOnFailureListener { e ->
                             progressDialog.dismiss()
