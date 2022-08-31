@@ -77,10 +77,10 @@
         android:layout_above="@id/contentLl"
         android:layout_below="@id/searchEt"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="60dp"
-        android:paddingBottom="15dp"
+        android:layout_marginBottom="40dp"
+        android:paddingBottom="30dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/row_category" />
 

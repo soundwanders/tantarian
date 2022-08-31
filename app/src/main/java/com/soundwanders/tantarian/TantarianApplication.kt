@@ -15,9 +15,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.ktx.storageMetadata
 import java.util.*
-import kotlin.collections.HashMap
 
 class TantarianApplication:Application() {
     override fun onCreate() {
@@ -28,7 +26,7 @@ class TantarianApplication:Application() {
         fun formatTimeStamp(timestamp: Long) : String {
             val cal = Calendar.getInstance(Locale.ENGLISH)
             cal.timeInMillis = timestamp
-            return DateFormat.format("dd/MM/yyyy", cal).toString()
+            return DateFormat.format("MM/yyyy", cal).toString()
         }
 
         fun loadPdfSize(pdfUrl: String, pdfTitle: String, sizeTv: TextView) {
@@ -202,7 +200,6 @@ class TantarianApplication:Application() {
                     }
 
                     override fun onCancelled(error: DatabaseError) {
-                        TODO("Not yet implemented")
                     }
                 })
         }

@@ -12,6 +12,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.ktx.storageMetadata
 import com.soundwanders.tantarian.databinding.ActivityAdminDashboardBinding
 
 
@@ -53,8 +54,9 @@ class AdminDashboardActivity : AppCompatActivity() {
             builder.setTitle("Delete")
                 .setMessage("Log out of your account?")
                 .setPositiveButton("Log Out") {a, d ->
-                    firebaseAuth.signOut()
                     Toast.makeText(this, "Logging out...", Toast.LENGTH_SHORT).show()
+                    firebaseAuth.signOut()
+                    finish()
                 }
                 .setNegativeButton("Cancel") { a, d ->
                     a.dismiss()
@@ -89,11 +91,12 @@ class AdminDashboardActivity : AppCompatActivity() {
                 }
                 adapterCategory =
                     AdapterCategory(this@AdminDashboardActivity, categoryArrayList)
+
                 binding.categoriesRv.adapter = adapterCategory
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+
             }
         })
     }

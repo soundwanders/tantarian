@@ -27,7 +27,7 @@
             android:textColor="@color/black"
             android:paddingStart="3dp"
             android:paddingEnd="3dp"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:paddingTop="7dp"
             android:paddingBottom="7dp" />

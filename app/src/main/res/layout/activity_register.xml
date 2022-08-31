@@ -166,7 +166,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/confirmPasswordTil"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/shape_button04"
+                android:background="@drawable/shape_button01"
                 android:text="@string/register_user"
                 android:textColor="@color/black" />
         </RelativeLayout>
