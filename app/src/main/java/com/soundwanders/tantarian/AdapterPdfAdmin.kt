@@ -27,7 +27,7 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
         this.filterList = pdfArrayList
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderPdfAdmin {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : HolderPdfAdmin {
         binding = RowPdfAdminBinding.inflate(LayoutInflater.from(context), parent, false)
         return HolderPdfAdmin(binding.root)
     }
@@ -91,11 +91,11 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
             .show()
     }
 
-    override fun getItemCount(): Int {
+    override fun getItemCount() : Int {
         return pdfArrayList.size
     }
 
-    override fun getFilter(): Filter {
+    override fun getFilter() : Filter {
         if (filter == null) {
             filter = FilterPdfAdmin(filterList, this)
         }

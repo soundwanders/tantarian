@@ -32,7 +32,7 @@ class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): HolderCategory {
+    ) : HolderCategory {
         binding = RowCategoryBinding.inflate(LayoutInflater.from(context), parent, false)
         return HolderCategory(binding.root)
     }
@@ -83,16 +83,16 @@ class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
             }
     }
 
-    override fun getItemCount(): Int {
+    override fun getItemCount() : Int {
         return categoryArrayList.size
     }
 
-    inner class HolderCategory(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class HolderCategory(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var categoryTv:TextView = binding.categoryTv
         var deleteBtn:ImageButton = binding.deleteBtn
     }
 
-    override fun getFilter(): Filter {
+    override fun getFilter() : Filter {
         if (filter == null) {
             filter = FilterCategory(filterList, this)
         }

@@ -60,7 +60,7 @@ class BooksUserFragment : Fragment() {
         if (category == "All") {
             loadAllItems()
         }
-        else if (category == "Most Popular") {
+        else if (category == "Most Viewed") {
             loadMostPopular("viewsCount")
         }
         else if (category == "Most Downloaded") {

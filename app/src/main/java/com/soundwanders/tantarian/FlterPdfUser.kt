@@ -12,7 +12,7 @@ class FilterPdfUser : Filter {
         this.adapterPdfUser = adapterPdfUser
     }
 
-    override fun performFiltering(constraint: CharSequence?): FilterResults {
+    override fun performFiltering(constraint: CharSequence?) : FilterResults {
         var constraint:CharSequence? = constraint
         val results = FilterResults()
 

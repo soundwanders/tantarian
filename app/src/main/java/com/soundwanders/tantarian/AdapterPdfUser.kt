@@ -62,11 +62,11 @@ class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filter
         }
     }
 
-    override fun getItemCount(): Int {
+    override fun getItemCount() : Int {
         return pdfArrayList.size
     }
 
-    override fun getFilter(): Filter {
+    override fun getFilter() : Filter {
         if (filter == null) {
             filter = FilterPdfUser(filterList, this)
         }
@@ -74,7 +74,7 @@ class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filter
     }
 
     // ViewHolder class row_pdf_user.xml
-    inner class HolderPdfUser(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class HolderPdfUser(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val pdfView = binding.pdfView
         val progressBar  = binding.progressBar
         val titleTv = binding.titleTv

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".BooksUserFragment">
 
     <EditText
@@ -19,7 +20,8 @@
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray01"
-        android:inputType="text" />
+        android:inputType="text"
+        android:autofillHints="false" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/booksRv"
