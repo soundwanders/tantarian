@@ -46,7 +46,9 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="12dp"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/app_name"
+            android:contentDescription="@string/log_out"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:src="@drawable/ic_logout_black" />
     </RelativeLayout>
     
@@ -64,6 +66,7 @@
         android:drawableStart="@drawable/ic_search_gray"
         android:hint="@string/search"
         android:inputType="text"
+        android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray01"

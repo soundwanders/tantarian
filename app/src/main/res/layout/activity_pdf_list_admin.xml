@@ -21,10 +21,12 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
-            android:padding="5dp"
-            android:src="@drawable/ic_back_black"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/back" />
+            android:contentDescription="@string/back"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_back_black" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addPdfFab"
@@ -34,8 +36,9 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="12dp"
             android:backgroundTint="@color/white"
-            android:src="@drawable/ic_add_library_black"
             android:contentDescription="@string/add_new_book"
+            android:minHeight="48dp"
+            android:src="@drawable/ic_add_library_black"
             app:fabCustomSize="45dp" />
 
         <TextView
@@ -72,6 +75,7 @@
         android:drawableStart="@drawable/ic_search_gray"
         android:hint="@string/search"
         android:inputType="text"
+        android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray01"

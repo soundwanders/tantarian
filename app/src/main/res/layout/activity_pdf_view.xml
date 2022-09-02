@@ -20,10 +20,12 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
-            android:padding="5dp"
-            android:src="@drawable/ic_back_black"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/back" />
+            android:contentDescription="@string/back"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_back_black" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/editBookBtn"
@@ -33,8 +35,10 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="12dp"
             android:backgroundTint="@color/white"
-            android:src="@drawable/ic_view_more_black"
             android:contentDescription="@string/edit_book"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:src="@drawable/ic_view_more_black"
             app:fabCustomSize="35dp" />
 
         <TextView

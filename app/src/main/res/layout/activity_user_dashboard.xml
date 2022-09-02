@@ -53,6 +53,7 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarRl"
         android:background="@android:color/transparent"
         android:layout_margin="5dp"
         app:tabIndicatorFullWidth="false"
