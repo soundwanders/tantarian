@@ -12,6 +12,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -29,6 +30,10 @@ class PdfDetailsActivity : AppCompatActivity() {
     private var bookTitle = ""
 
     private lateinit var progressDialog: ProgressDialog
+    private lateinit var firebaseAuth: FirebaseAuth
+
+    // boolean used to check if selection is in User favorites
+    private var isFavorite = false
 
     private companion object {
         const val TAG = "BOOK_DETAILS_TAG"
@@ -46,9 +51,14 @@ class PdfDetailsActivity : AppCompatActivity() {
         progressDialog.setTitle("Loading your book...")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        loadBookDetails()
+        firebaseAuth = FirebaseAuth.getInstance()
+        if (firebaseAuth.currentUser != null) {
+            checkIsFavorite()
+        }
 
         TantarianApplication.incrementBookViewCount(bookId)
+
+        loadBookDetails()
 
         binding.backBtn.setOnClickListener{
             onBackPressed()
@@ -73,6 +83,16 @@ class PdfDetailsActivity : AppCompatActivity() {
                 requestStoragePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
             }
         }
+
+        binding.favoriteBtn.setOnClickListener {
+            if (firebaseAuth.currentUser == null) {
+                Toast.makeText(this, "Please log in to add your Favorites", Toast.LENGTH_SHORT)
+                    .show()
+            }
+            else {
+                if (isFavorite) removeFavorite() else addFavorite()
+            }
+        }
     }
 
     private val requestStoragePermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
@@ -82,7 +102,7 @@ class PdfDetailsActivity : AppCompatActivity() {
         }
         else {
             Log.d(TAG, "onCreate: Storage permission has been denied")
-            Toast.makeText(this, "Denied. Are you sure you're an Admin?", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Request denied.", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -206,5 +226,94 @@ class PdfDetailsActivity : AppCompatActivity() {
                 override fun onCancelled(error: DatabaseError) {
                 }
             })
+    }
+
+    private fun checkIsFavorite() {
+        Log.d(TAG, "checkIsFavorite: Checking if item is already in your Favorites")
+
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        ref.child(firebaseAuth.uid!!).child("Favorites").child(bookId)
+            .addValueEventListener(object: ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    isFavorite = snapshot.exists()
+                    if (isFavorite) {
+                        Log.d(TAG, "onDataChange: Available to add to Favorites")
+
+                        // set drawable to filled favorite icon to indicate item is favorite
+                        binding.favoriteBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_favorite_black,
+                            0,
+                            0
+                        )
+                        binding.favoriteBtn.text = getString(R.string.remove_favorite)
+                    } else {
+                        Log.d(TAG, "onDataChange: Unable to add to Favorites")
+
+                        // set drawable to filled favorite icon to indicate item is favorite
+                        binding.favoriteBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_favorite_border_black,
+                            0,
+                            0
+                        )
+                        binding.favoriteBtn.text = getString(R.string.favorite)
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
+    }
+
+    private fun addFavorite() {
+        Log.d(TAG, "addFavorite: Adding to your Favorites")
+        val timestamp = System.currentTimeMillis()
+
+        val hashMap = HashMap<String, Any>()
+        hashMap["bookId"] = bookId
+        hashMap["timestamp"] = timestamp
+
+        // save favorite to database
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        ref.child(firebaseAuth.uid!!).child("Favorites").child(bookId)
+            .setValue(hashMap)
+            .addOnSuccessListener {
+                Log.d(TAG, "addFavorite: Adding to your Favorites")
+            }
+            .addOnFailureListener { e ->
+                Log.d(TAG, "addFavorite: Unable to add to your Favorites due to ${e.message}")
+                Toast.makeText(
+                    this,
+                    "Unable to add selection to your Favorites due to ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+    }
+
+    private fun removeFavorite() {
+        Log.d(TAG, "removeFavorite: Removing selection from your Favorites")
+        val timestamp = System.currentTimeMillis()
+
+        val hashMap = HashMap<String, Any>()
+        hashMap["bookId"] = bookId
+        hashMap["timestamp"] = timestamp
+
+        // save favorite to database
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        ref.child(firebaseAuth.uid!!).child("Favorites").child(bookId)
+            .removeValue()
+            .addOnSuccessListener {
+                Log.d(TAG, "removeFavorite: Removing selection from your Favorites")
+            }
+            .addOnFailureListener { e ->
+                Log.d(TAG, "Unable to remove selection from your Favorites due to ${e.message}")
+                Toast.makeText(
+                    this,
+                    "Unable to add to your Favorites due to ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
     }
 }

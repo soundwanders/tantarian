@@ -55,4 +55,6 @@
     <string name="download">Download</string>
 
     <string name="blank_fragment">Blank fragment!</string>
+    <string name="favorite">Favorite</string>
+    <string name="remove_favorite">Remove</string>
 </resources>
