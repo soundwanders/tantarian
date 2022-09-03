@@ -11,11 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.soundwanders.tantarian.databinding.RowPdfUserBinding
 
 class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filterable {
-    private var context: Context
-    var pdfArrayList: ArrayList<ModelPdf>
-    var filterList: ArrayList<ModelPdf>
+    // bind row_pdf_user.xml --> RowPdfUserBinding
     private lateinit var binding: RowPdfUserBinding
+
+    private var context: Context
     private var filter: FilterPdfUser? = null
+    private var filterList: ArrayList<ModelPdf>
+    var pdfArrayList: ArrayList<ModelPdf>
 
     constructor(context: Context, pdfArrayList: ArrayList<ModelPdf>) {
         this.context = context
@@ -28,10 +30,11 @@ class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filter
         viewType: Int
     ): HolderPdfUser {
         binding = RowPdfUserBinding.inflate(LayoutInflater.from(context), parent, false)
+
         return HolderPdfUser(binding.root)
     }
 
-    override fun onBindViewHolder(holder: AdapterPdfUser.HolderPdfUser, position: Int) {
+    override fun onBindViewHolder(holder: HolderPdfUser, position: Int) {
         val model = pdfArrayList[position]
         val bookId = model.id
         val categoryId = model.categoryId
@@ -41,21 +44,22 @@ class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filter
         val url = model.url
         val timestamp = model.timestamp
 
-        val date = TantarianApplication.formatTimeStamp(timestamp)
+        val formattedDate = TantarianApplication.formatTimeStamp(timestamp)
 
-        // set data to holder
+        // set data to holder view
         holder.titleTv.text = title
         holder.descriptionTv.text = description
-        holder.dateTv.text = date
+        holder.dateTv.text = formattedDate
 
-        // pass null into pages TextView because page numbers are not applicable here
-        TantarianApplication.loadFromUrlSinglePage(url, title, holder.pdfView, holder.progressBar, null)
+        // page number irrelevant in this context, so we pass it as null
+        TantarianApplication.loadFromUrlSinglePage(url, title, holder.pdfView, holder.progressBar, null )
 
         TantarianApplication.loadCategory(categoryId, holder.categoryTv)
+
         TantarianApplication.loadPdfSize(url, title, holder.sizeTv)
 
         holder.itemView.setOnClickListener {
-            // pass bookId with intent, used to retrieve unique book data
+            // pass bookId with intent, used to retrieve book data
             val intent = Intent(context, PdfDetailsActivity::class.java)
             intent.putExtra("bookId", bookId)
             context.startActivity(intent)
@@ -75,12 +79,12 @@ class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filter
 
     // ViewHolder class row_pdf_user.xml
     inner class HolderPdfUser(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val pdfView = binding.pdfView
-        val progressBar  = binding.progressBar
-        val titleTv = binding.titleTv
-        val descriptionTv = binding.descriptionTv
-        val categoryTv = binding.categoryTv
-        val sizeTv = binding.sizeTv
-        val dateTv = binding.dateTv
+        var pdfView = binding.pdfView
+        var progressBar  = binding.progressBar
+        var titleTv = binding.titleTv
+        var descriptionTv = binding.descriptionTv
+        var categoryTv = binding.categoryTv
+        var sizeTv = binding.sizeTv
+        var dateTv = binding.dateTv
     }
 }

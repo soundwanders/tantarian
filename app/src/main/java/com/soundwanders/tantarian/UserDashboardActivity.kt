@@ -16,11 +16,8 @@ import com.google.firebase.database.ValueEventListener
 import com.soundwanders.tantarian.databinding.ActivityUserDashboardBinding
 
 class UserDashboardActivity : AppCompatActivity() {
-    // view binding
     private lateinit var binding: ActivityUserDashboardBinding
-
     private lateinit var firebaseAuth: FirebaseAuth
-
     private lateinit var categoryArrayList: ArrayList<ModelCategory>
     private lateinit var viewPagerAdapter: ViewPagerAdapter
 

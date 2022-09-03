@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.soundwanders.tantarian.databinding.FragmentBooksUserBinding
 
-class BooksUserFragment : Fragment() {
+class BooksUserFragment : Fragment {
     private lateinit var binding: FragmentBooksUserBinding
 
     companion object {
@@ -41,6 +41,8 @@ class BooksUserFragment : Fragment() {
     private lateinit var pdfArrayList: ArrayList<ModelPdf>
     private lateinit var adapterPdfUser: AdapterPdfUser
 
+    constructor()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -57,20 +59,22 @@ class BooksUserFragment : Fragment() {
         binding = FragmentBooksUserBinding.inflate(LayoutInflater.from(context), container, false)
 
         Log.d(TAG, "onCreateView: Category: $category" )
-        if (category == "All") {
-            loadAllItems()
-        }
-        else if (category == "Most Viewed") {
-            loadMostPopular("viewsCount")
-        }
-        else if (category == "Most Downloaded") {
-            loadMostPopular("downloadsCount")
-        }
-        else {
-            loadCategorizedItems()
+        when (category) {
+            "All" -> {
+                loadAllItems()
+            }
+            "Most Viewed" -> {
+                loadMostPopular("viewsCount")
+            }
+            "Most Downloaded" -> {
+                loadMostPopular("downloadsCount")
+            }
+            else -> {
+                loadCategorizedItems()
+            }
         }
 
-        binding.searchEt.addTextChangedListener() { object: TextWatcher {
+        binding.searchEt.addTextChangedListener { object: TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
@@ -87,7 +91,6 @@ class BooksUserFragment : Fragment() {
             override fun afterTextChanged(p0: Editable?) {
             }
         }}
-
         return binding.root
     }
 

@@ -17,7 +17,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
 
-class TantarianApplication:Application() {
+class TantarianApplication : Application() {
     override fun onCreate() {
         super.onCreate()
     }
@@ -113,7 +113,6 @@ class TantarianApplication:Application() {
                     }
 
                     override fun onCancelled(error: DatabaseError) {
-                        TODO("Not yet implemented")
                     }
                 })
         }

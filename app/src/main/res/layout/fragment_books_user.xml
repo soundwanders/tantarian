@@ -9,20 +9,23 @@
     android:background="@color/black"
     tools:context=".BooksUserFragment">
 
+    <!-- Search Books -->
     <EditText
         android:id="@+id/searchEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:autofillHints="false"
-        android:background="@color/white"
+        android:layout_margin="12dp"
+        android:background="@drawable/shape_edittext01"
         android:drawableStart="@drawable/ic_search_gray"
         android:hint="@string/search"
         android:inputType="text"
         android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:textColorHint="@color/gray01" />
+        android:textColorHint="@color/gray01"
+        android:textCursorDrawable="@null"
+        android:autofillHints="false" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/booksRv"
