@@ -21,10 +21,10 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.soundwanders.tantarian.models.ModelCategory
 import com.soundwanders.tantarian.R
-import com.soundwanders.tantarian.databinding.ActivityAddPdfBinding
+import com.soundwanders.tantarian.databinding.ActivityAddBookBinding
 
 class BookAddActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityAddPdfBinding
+    private lateinit var binding: ActivityAddBookBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var progressDialog: ProgressDialog
     private lateinit var categoryArrayList: ArrayList<ModelCategory>
@@ -34,7 +34,7 @@ class BookAddActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAddPdfBinding.inflate(layoutInflater)
+        binding = ActivityAddBookBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -226,7 +226,7 @@ class BookAddActivity : AppCompatActivity() {
                 Log.d(TAG, "Pdf Selected")
                 pdfUri = result.data!!.data
                 val text = findViewById<TextView>(R.id.attachPdfBtn)
-                text.text = "Pdf Attached Successfully"
+                text.text = R.string.attached_successfully.toString()
             }
             else {
                 Log.d(TAG, "Pdf Deselected")

@@ -10,10 +10,10 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.soundwanders.tantarian.databinding.ActivityPdfEditBinding
+import com.soundwanders.tantarian.databinding.ActivityBookEditBinding
 
 class BookEditActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityPdfEditBinding
+    private lateinit var binding: ActivityBookEditBinding
 
     private companion object {
         private const val TAG = "PDF_EDIT_TAG"
@@ -38,7 +38,7 @@ class BookEditActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPdfEditBinding.inflate(layoutInflater)
+        binding = ActivityBookEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // fetch bookId in order to edit correct book

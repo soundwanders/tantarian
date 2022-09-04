@@ -16,4 +16,5 @@
     <color name="red_200">#FF6961</color>
     <color name="red_500">#FF5A5F</color>
     <color name="green_confirm">#CDF4D5</color>
+    <color name="logo_bg">#180c0c</color>
 </resources>

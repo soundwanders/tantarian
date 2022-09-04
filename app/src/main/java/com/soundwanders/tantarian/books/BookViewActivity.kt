@@ -10,10 +10,10 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.soundwanders.tantarian.Constants
-import com.soundwanders.tantarian.databinding.ActivityPdfViewBinding
+import com.soundwanders.tantarian.databinding.ActivityBookViewBinding
 
 class BookViewActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityPdfViewBinding
+    private lateinit var binding: ActivityBookViewBinding
 
     private companion object {
         val TAG = "PDF_VIEW_TAG"
@@ -23,7 +23,7 @@ class BookViewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPdfViewBinding.inflate(layoutInflater)
+        binding = ActivityBookViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         bookId = intent.getStringExtra("bookId")!!

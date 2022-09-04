@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back01"
-    tools:context=".auth.RegisterActivity"
->
+    tools:context=".auth.RegisterActivity" >
     <!-- Toolbar -->
     <RelativeLayout
         android:id="@+id/toolbarRl"
@@ -73,7 +72,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/shape_edittext01"
-                    android:drawableStart="@drawable/ic_person_gray"
+                    android:drawableStart="@drawable/ic_profile_black"
                     android:drawablePadding="10dp"
                     android:hint="@string/name"
                     android:autofillHints="false"

@@ -12,12 +12,12 @@ import com.soundwanders.tantarian.models.ModelBook
 import com.soundwanders.tantarian.TantarianApplication
 import com.soundwanders.tantarian.books.BookDetailsActivity
 import com.soundwanders.tantarian.books.BookViewActivity
-import com.soundwanders.tantarian.databinding.RowPdfUserBinding
+import com.soundwanders.tantarian.databinding.RowBookUserBinding
 import com.soundwanders.tantarian.filter.FilterPdfUser
 
 class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filterable {
     // bind row_pdf_user.xml --> RowPdfUserBinding
-    private lateinit var binding: RowPdfUserBinding
+    private lateinit var binding: RowBookUserBinding
 
     private var context: Context
     private var filter: FilterPdfUser? = null
@@ -34,7 +34,7 @@ class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filter
         parent: ViewGroup,
         viewType: Int
     ): HolderPdfUser {
-        binding = RowPdfUserBinding.inflate(LayoutInflater.from(context), parent, false)
+        binding = RowBookUserBinding.inflate(LayoutInflater.from(context), parent, false)
 
         return HolderPdfUser(binding.root)
     }

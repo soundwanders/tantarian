@@ -11,12 +11,12 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.soundwanders.tantarian.adapter.AdapterPdfAdmin
+import com.soundwanders.tantarian.databinding.ActivityBookListAdminBinding
 import com.soundwanders.tantarian.models.ModelBook
-import com.soundwanders.tantarian.databinding.ActivityPdfListAdminBinding
 import kotlin.Exception
 
 class BookListAdminActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityPdfListAdminBinding
+    private lateinit var binding: ActivityBookListAdminBinding
     private lateinit var pdfArrayList: ArrayList<ModelBook>
     private lateinit var adapterPdfAdmin: AdapterPdfAdmin
 
@@ -29,7 +29,7 @@ class BookListAdminActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPdfListAdminBinding.inflate(layoutInflater)
+        binding = ActivityBookListAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // get intent passed from Adapter

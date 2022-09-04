@@ -20,12 +20,12 @@ import com.google.firebase.storage.FirebaseStorage
 import com.soundwanders.tantarian.Constants
 import com.soundwanders.tantarian.R
 import com.soundwanders.tantarian.TantarianApplication
-import com.soundwanders.tantarian.databinding.ActivityPdfDetailsBinding
+import com.soundwanders.tantarian.databinding.ActivityBookDetailsBinding
 import java.io.FileOutputStream
 
 class BookDetailsActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityPdfDetailsBinding
+    private lateinit var binding: ActivityBookDetailsBinding
 
     private var bookId = ""
     private var bookUrl = ""
@@ -43,7 +43,7 @@ class BookDetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPdfDetailsBinding.inflate(layoutInflater)
+        binding = ActivityBookDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // get bookId from intent

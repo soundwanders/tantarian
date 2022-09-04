@@ -13,11 +13,11 @@ import com.soundwanders.tantarian.models.ModelBook
 import com.soundwanders.tantarian.TantarianApplication
 import com.soundwanders.tantarian.books.BookDetailsActivity
 import com.soundwanders.tantarian.books.BookEditActivity
-import com.soundwanders.tantarian.databinding.RowPdfAdminBinding
+import com.soundwanders.tantarian.databinding.RowBookAdminBinding
 import com.soundwanders.tantarian.filter.FilterPdfAdmin
 
 class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Filterable{
-    private lateinit var binding:RowPdfAdminBinding
+    private lateinit var binding:RowBookAdminBinding
     private var context: Context
 
     // set pdfArrayList as public to allow access by FilterPdfAdmin Activity
@@ -33,7 +33,7 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : HolderPdfAdmin {
-        binding = RowPdfAdminBinding.inflate(LayoutInflater.from(context), parent, false)
+        binding = RowBookAdminBinding.inflate(LayoutInflater.from(context), parent, false)
         return HolderPdfAdmin(binding.root)
     }
 

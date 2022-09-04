@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".books.BookListAdminActivity"
-    android:background="@color/black">
+    android:background="@color/black" >
 
     <RelativeLayout
         android:id="@+id/toolbarRl"
@@ -91,5 +91,5 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/row_pdf_admin" />
+        tools:listitem="@layout/row_book_admin" />
 </RelativeLayout>
