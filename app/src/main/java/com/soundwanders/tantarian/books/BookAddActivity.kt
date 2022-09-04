@@ -1,10 +1,9 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.books
 
 import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
@@ -12,6 +11,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -19,9 +19,11 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import com.soundwanders.tantarian.models.ModelCategory
+import com.soundwanders.tantarian.R
 import com.soundwanders.tantarian.databinding.ActivityAddPdfBinding
 
-class PdfAddActivity : AppCompatActivity() {
+class BookAddActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddPdfBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var progressDialog: ProgressDialog

@@ -1,18 +1,18 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.books
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import com.soundwanders.tantarian.Constants
 import com.soundwanders.tantarian.databinding.ActivityPdfViewBinding
 
-class PdfViewActivity : AppCompatActivity() {
+class BookViewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPdfViewBinding
 
     private companion object {

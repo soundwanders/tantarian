@@ -1,28 +1,29 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.books
 
 import android.Manifest
 import android.app.ProgressDialog
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import com.soundwanders.tantarian.Constants
+import com.soundwanders.tantarian.R
+import com.soundwanders.tantarian.TantarianApplication
 import com.soundwanders.tantarian.databinding.ActivityPdfDetailsBinding
 import java.io.FileOutputStream
 
-class PdfDetailsActivity : AppCompatActivity() {
+class BookDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPdfDetailsBinding
 
@@ -66,7 +67,7 @@ class PdfDetailsActivity : AppCompatActivity() {
         }
 
         binding.readBookBtn.setOnClickListener {
-            val intent = Intent(this, PdfViewActivity::class.java)
+            val intent = Intent(this, BookViewActivity::class.java)
             intent.putExtra("bookId", bookId)
             startActivity(intent)
         }
@@ -153,6 +154,47 @@ class PdfDetailsActivity : AppCompatActivity() {
         }
     }
 
+    private fun loadBookDetails() {
+        val ref = FirebaseDatabase.getInstance().getReference("Books")
+        ref.child(bookId)
+            .addListenerForSingleValueEvent(object: ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    // get book data
+                    val categoryId = "${snapshot.child("categoryId").value}"
+                    bookTitle = "${snapshot.child("title").value}"
+                    val description = "${snapshot.child("description").value}"
+                    val timestamp = "${snapshot.child("timestamp").value}"
+                    val uid = "${snapshot.child("uid").value}"
+                    bookUrl = "${snapshot.child("url").value}"
+                    val downloadsCount = "${snapshot.child("downloadsCount").value}"
+                    val viewsCount = "${snapshot.child("viewsCount").value}"
+                    val date = TantarianApplication.formatTimeStamp(timestamp.toLong())
+
+                    TantarianApplication.loadCategory(categoryId, binding.categoryTv)
+
+                    TantarianApplication.loadFromUrlSinglePage(
+                        "$bookUrl",
+                        "$bookTitle",
+                        binding.pdfView,
+                        binding.progressBar,
+                        binding.pagesTv
+                    )
+
+                    TantarianApplication.loadPdfSize(bookUrl, bookTitle, binding.sizeTv)
+
+                    // set book data
+                    binding.titleTv.text = bookTitle
+                    binding.descriptionTv.text = description
+                    binding.downloadsTv.text = downloadsCount
+                    binding.viewsTv.text = viewsCount
+                    binding.dateTv.text = date
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                }
+            })
+    }
+
     private fun incrementDownloadCount() {
         Log.d(TAG, "incrementDownloadCount: ")
 
@@ -183,45 +225,6 @@ class PdfDetailsActivity : AppCompatActivity() {
                         .addOnFailureListener { e ->
                             Log.d(TAG, "onDataChange: Failed to increment downloads count due to ${e.message}")
                         }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                }
-            })
-    }
-
-    private fun loadBookDetails() {
-        val ref = FirebaseDatabase.getInstance().getReference("Books")
-        ref.child(bookId)
-            .addListenerForSingleValueEvent(object: ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    // get book data
-                    val categoryId = "${snapshot.child("categoryId").value}"
-                    bookTitle = "${snapshot.child("title").value}"
-                    val description = "${snapshot.child("description").value}"
-                    val timestamp = "${snapshot.child("timestamp").value}"
-                    val uid = "${snapshot.child("uid").value}"
-                    bookUrl = "${snapshot.child("url").value}"
-                    val downloadsCount = "${snapshot.child("downloadsCount").value}"
-                    val viewsCount = "${snapshot.child("viewsCount").value}"
-                    val date = TantarianApplication.formatTimeStamp(timestamp.toLong())
-
-                    TantarianApplication.loadCategory(categoryId, binding.categoryTv)
-                    TantarianApplication.loadFromUrlSinglePage(
-                        "$bookUrl",
-                        "$bookTitle",
-                        binding.pdfView,
-                        binding.progressBar,
-                        binding.pagesTv
-                    )
-                    TantarianApplication.loadPdfSize(bookUrl, bookTitle, binding.sizeTv)
-
-                    // set book data
-                    binding.titleTv.text = title
-                    binding.descriptionTv.text = description
-                    binding.downloadsTv.text = downloadsCount
-                    binding.viewsTv.text = viewsCount
-                    binding.dateTv.text = date
                 }
 
                 override fun onCancelled(error: DatabaseError) {

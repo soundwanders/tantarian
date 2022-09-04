@@ -1,4 +1,4 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.dashboard
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -12,7 +12,10 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.storage.ktx.storageMetadata
+import com.soundwanders.tantarian.MainActivity
+import com.soundwanders.tantarian.models.ModelCategory
+import com.soundwanders.tantarian.adapter.AdapterCategory
+import com.soundwanders.tantarian.books.BookAddActivity
 import com.soundwanders.tantarian.databinding.ActivityAdminDashboardBinding
 
 
@@ -68,11 +71,11 @@ class AdminDashboardActivity : AppCompatActivity() {
 
         // add a new category
         binding.addCategoryBtn.setOnClickListener {
-            startActivity(Intent(this, AddCategoryActivity::class.java))
+            startActivity(Intent(this, AdminAddCategoryActivity::class.java))
         }
 
         binding.addPdfFab.setOnClickListener {
-            startActivity(Intent(this, PdfAddActivity::class.java))
+            startActivity(Intent(this, BookAddActivity::class.java))
         }
     }
 

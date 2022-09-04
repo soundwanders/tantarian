@@ -1,11 +1,10 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.dashboard
 
 import android.app.AlertDialog
 import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -15,6 +14,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.soundwanders.tantarian.models.ModelCategory
+import com.soundwanders.tantarian.R
+import com.soundwanders.tantarian.books.BooksUserFragment
 import com.soundwanders.tantarian.databinding.ActivityUserDashboardBinding
 
 class UserDashboardActivity : AppCompatActivity() {

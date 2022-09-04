@@ -1,13 +1,15 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.filter
 
 import android.widget.Filter
+import com.soundwanders.tantarian.adapter.AdapterPdfUser
+import com.soundwanders.tantarian.models.ModelBook
 
 class FilterPdfUser : Filter {
-    private var filterList: ArrayList<ModelPdf>
+    private var filterList: ArrayList<ModelBook>
 
     var adapterPdfUser: AdapterPdfUser
 
-    constructor(filterList: ArrayList<ModelPdf>, adapterPdfUser: AdapterPdfUser) {
+    constructor(filterList: ArrayList<ModelBook>, adapterPdfUser: AdapterPdfUser) {
         this.filterList = filterList
         this.adapterPdfUser = adapterPdfUser
     }
@@ -18,7 +20,7 @@ class FilterPdfUser : Filter {
 
         if (charConstraint != null && charConstraint.isNotEmpty()) {
             charConstraint = charConstraint.toString().lowercase()
-            var filteredModels = ArrayList<ModelPdf>()
+            var filteredModels = ArrayList<ModelBook>()
             for (i in filterList.indices) {
                 if (filterList[i].title.lowercase().contains(charConstraint)) {
                     filteredModels.add(filterList[i])
@@ -35,7 +37,7 @@ class FilterPdfUser : Filter {
     }
 
     override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-        adapterPdfUser.pdfArrayList = results!!.values as ArrayList<ModelPdf>
+        adapterPdfUser.pdfArrayList = results!!.values as ArrayList<ModelBook>
         adapterPdfUser.notifyDataSetChanged()
     }
 }

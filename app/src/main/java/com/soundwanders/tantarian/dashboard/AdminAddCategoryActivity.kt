@@ -1,4 +1,4 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.dashboard
 
 import android.app.ProgressDialog
 import android.os.Bundle
@@ -8,7 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.soundwanders.tantarian.databinding.ActivityAddCategoryBinding
 
-class AddCategoryActivity : AppCompatActivity() {
+class AdminAddCategoryActivity : AppCompatActivity() {
     // view binding
     private lateinit var binding: ActivityAddCategoryBinding
 

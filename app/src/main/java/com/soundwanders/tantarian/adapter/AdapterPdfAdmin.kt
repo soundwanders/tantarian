@@ -1,4 +1,4 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.adapter
 
 import android.app.AlertDialog
 import android.content.Context
@@ -9,19 +9,24 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.soundwanders.tantarian.models.ModelBook
+import com.soundwanders.tantarian.TantarianApplication
+import com.soundwanders.tantarian.books.BookDetailsActivity
+import com.soundwanders.tantarian.books.BookEditActivity
 import com.soundwanders.tantarian.databinding.RowPdfAdminBinding
+import com.soundwanders.tantarian.filter.FilterPdfAdmin
 
 class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Filterable{
     private lateinit var binding:RowPdfAdminBinding
     private var context: Context
 
     // set pdfArrayList as public to allow access by FilterPdfAdmin Activity
-    var pdfArrayList: ArrayList<ModelPdf>
+    var pdfArrayList: ArrayList<ModelBook>
 
-    private val filterList: ArrayList<ModelPdf>
+    private val filterList: ArrayList<ModelBook>
     private var filter: FilterPdfAdmin? = null
 
-    constructor(context: Context, pdfArrayList: ArrayList<ModelPdf>) : super() {
+    constructor(context: Context, pdfArrayList: ArrayList<ModelBook>) : super() {
         this.context = context
         this.pdfArrayList = pdfArrayList
         this.filterList = pdfArrayList
@@ -51,7 +56,13 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
         TantarianApplication.loadCategory(categoryId, holder.categoryTv)
 
         // page number irrelevant in this context, so we will pass page number parameter as NULL
-        TantarianApplication.loadFromUrlSinglePage(pdfUrl, title, holder.pdfView, holder.progressBar, null)
+        TantarianApplication.loadFromUrlSinglePage(
+            pdfUrl,
+            title,
+            holder.pdfView,
+            holder.progressBar,
+            null
+        )
 
         // get pdf size
         TantarianApplication.loadPdfSize(pdfUrl, title, holder.sizeTv)
@@ -61,13 +72,13 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
         }
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, PdfDetailsActivity::class.java)
+            val intent = Intent(context, BookDetailsActivity::class.java)
             intent.putExtra("bookId", pdfId)
             context.startActivity(intent)
         }
     }
 
-    private fun moreOptionsDialog(model: ModelPdf, holder: AdapterPdfAdmin.HolderPdfAdmin) {
+    private fun moreOptionsDialog(model: ModelBook, holder: HolderPdfAdmin) {
         val bookId = model.id
         val bookUrl = model.url
         val bookTitle = model.title
@@ -80,7 +91,7 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
             .setItems(options){ dialog, position ->
                 if (position == 0) {
                     // bookId will be used to edit the selected book
-                    val intent = Intent(context, PdfEditActivity::class.java)
+                    val intent = Intent(context, BookEditActivity::class.java)
                     intent.putExtra("bookId", bookId)
                     context.startActivity(intent)
                 }

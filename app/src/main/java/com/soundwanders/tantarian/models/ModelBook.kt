@@ -1,6 +1,6 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.models
 
-class ModelPdf {
+class ModelBook {
     var uid:String = ""
     var id:String = ""
     var title:String = ""

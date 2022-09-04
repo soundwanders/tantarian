@@ -17,34 +17,34 @@
         android:theme="@style/Theme.Tantarian"
         tools:targetApi="31">
         <activity
-            android:name=".PdfViewActivity"
+            android:name=".books.BookViewActivity"
             android:exported="false" />
         <activity
-            android:name=".PdfDetailsActivity"
+            android:name=".books.BookDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".PdfEditActivity"
+            android:name=".books.BookEditActivity"
             android:exported="false" />
         <activity
-            android:name=".PdfListAdminActivity"
+            android:name=".books.BookListAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".PdfAddActivity"
+            android:name=".books.BookAddActivity"
             android:exported="false" />
         <activity
-            android:name=".AddCategoryActivity"
+            android:name=".dashboard.AdminAddCategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminDashboardActivity"
+            android:name=".dashboard.AdminDashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".UserDashboardActivity"
+            android:name=".dashboard.UserDashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".auth.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".auth.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

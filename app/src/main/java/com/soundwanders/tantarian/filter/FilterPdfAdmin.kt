@@ -1,13 +1,15 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.filter
 
 import android.widget.Filter
+import com.soundwanders.tantarian.adapter.AdapterPdfAdmin
+import com.soundwanders.tantarian.models.ModelBook
 
 class FilterPdfAdmin : Filter {
-    private var filterList: ArrayList<ModelPdf>
+    private var filterList: ArrayList<ModelBook>
 
     var adapterPdfAdmin: AdapterPdfAdmin
 
-    constructor(filterList: ArrayList<ModelPdf>, adapterPdfAdmin: AdapterPdfAdmin) {
+    constructor(filterList: ArrayList<ModelBook>, adapterPdfAdmin: AdapterPdfAdmin) {
         this.filterList = filterList
         this.adapterPdfAdmin = adapterPdfAdmin
     }
@@ -18,7 +20,7 @@ class FilterPdfAdmin : Filter {
 
         if (charConstraint != null && charConstraint.isNotEmpty()) {
             charConstraint = charConstraint.toString().lowercase()
-                var filteredModels = ArrayList<ModelPdf>()
+                var filteredModels = ArrayList<ModelBook>()
                 for (i in filterList.indices) {
                     if (filterList[i].title.lowercase().contains(charConstraint)) {
                         filteredModels.add(filterList[i])
@@ -35,7 +37,7 @@ class FilterPdfAdmin : Filter {
     }
 
     override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-        adapterPdfAdmin.pdfArrayList = results!!.values as ArrayList<ModelPdf>
+        adapterPdfAdmin.pdfArrayList = results!!.values as ArrayList<ModelBook>
 
         // it will always be more efficient to use specific change events where possible,
         // Rely on `notifyDataSetChanged` as a last resort
