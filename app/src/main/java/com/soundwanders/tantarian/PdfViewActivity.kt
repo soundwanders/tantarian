@@ -33,10 +33,6 @@ class PdfViewActivity : AppCompatActivity() {
         binding.backBtn.setOnClickListener {
             onBackPressed()
         }
-
-        binding.editBookBtn.setOnClickListener {
-            startActivity(Intent(this, PdfEditActivity::class.java))
-        }
     }
 
     private fun loadBookDetails() {

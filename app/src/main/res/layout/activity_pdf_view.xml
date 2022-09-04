@@ -11,8 +11,7 @@
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@drawable/shape_toolbar02"
-        >
+        android:background="@drawable/shape_toolbar02" >
 
         <ImageButton
             android:id="@+id/backBtn"
@@ -26,20 +25,6 @@
             android:minHeight="48dp"
             android:padding="5dp"
             android:src="@drawable/ic_back_black" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/editBookBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="12dp"
-            android:backgroundTint="@color/white"
-            android:contentDescription="@string/edit_book"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:src="@drawable/ic_view_more_black"
-            app:fabCustomSize="35dp" />
 
         <TextView
             android:id="@+id/titleTv"
@@ -57,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/titleTv"
             android:layout_centerHorizontal="true"
-            android:text="N/N"
+            android:text="@string/pages_placeholder"
             android:textColor="@color/black" />
     </RelativeLayout>
 

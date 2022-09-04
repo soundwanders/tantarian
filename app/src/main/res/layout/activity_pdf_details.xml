@@ -12,8 +12,7 @@
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@drawable/shape_toolbar02"
-    >
+        android:background="@drawable/shape_toolbar02">
 
         <ImageButton
             android:id="@+id/backBtn"
@@ -36,6 +35,7 @@
             android:text="@string/book_details"
             android:textColor="@color/black"
             android:textStyle="bold" />
+
     </RelativeLayout>
 
     <ScrollView
@@ -62,8 +62,8 @@
                     android:layout_width="120dp"
                     android:layout_height="140dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="20dp"
-                    android:background="@color/teal_200" >
+                    android:layout_marginEnd="30dp"
+                    android:background="@color/gray03" >
 
                     <com.github.barteksc.pdfviewer.PDFView
                         android:id="@+id/pdfView"
@@ -226,8 +226,8 @@
                             android:text="@string/not_applicable"
                             android:textColor="@color/white" />
                     </TableRow>
-                </TableLayout>
 
+                </TableLayout>
             </RelativeLayout>
 
             <!-- Book Description -->
@@ -235,10 +235,10 @@
                 android:id="@+id/descriptionTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:text="@string/book_description"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
 
@@ -256,25 +256,25 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:backgroundTint="@null"
                 android:background="@color/peach_500"
                 android:drawableTop="@drawable/ic_book_black"
                 android:text="@string/read"
-                android:textSize="16sp"
-                android:textColor="@color/black" />
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/downloadBookBtn"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:backgroundTint="@null"
                 android:layout_weight="1"
-                android:background="@color/gray03"
+                android:background="@color/teal_200"
                 android:drawableTop="@drawable/ic_download_black"
                 android:text="@string/download"
-                android:textSize="16sp"
-                android:textColor="@color/black" />
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/favoriteBtn"
@@ -285,8 +285,8 @@
                 android:background="@color/favorite_pink"
                 android:drawableTop="@drawable/ic_favorite_border_black"
                 android:text="@string/favorite"
+                android:textSize="14sp"
                 android:textColor="@color/black"
-                android:textSize="16sp"
                 app:backgroundTint="@null" />
 
         </LinearLayout>

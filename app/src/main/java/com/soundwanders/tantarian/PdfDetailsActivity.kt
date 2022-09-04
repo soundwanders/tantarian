@@ -8,10 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
-import android.widget.ProgressBar
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -86,7 +87,7 @@ class PdfDetailsActivity : AppCompatActivity() {
 
         binding.favoriteBtn.setOnClickListener {
             if (firebaseAuth.currentUser == null) {
-                Toast.makeText(this, "Please log in to add your Favorites", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Please log in to add to Favorites", Toast.LENGTH_SHORT)
                     .show()
             }
             else {
@@ -246,8 +247,9 @@ class PdfDetailsActivity : AppCompatActivity() {
                             0,
                             0
                         )
-                        binding.favoriteBtn.text = getString(R.string.remove_favorite)
-                    } else {
+                        binding.favoriteBtn.text = getString(R.string.favorite)
+                    }
+                    else {
                         Log.d(TAG, "onDataChange: Unable to add to Favorites")
 
                         // set drawable to filled favorite icon to indicate item is favorite
@@ -283,17 +285,17 @@ class PdfDetailsActivity : AppCompatActivity() {
                 Log.d(TAG, "addFavorite: Adding to your Favorites")
             }
             .addOnFailureListener { e ->
-                Log.d(TAG, "addFavorite: Unable to add to your Favorites due to ${e.message}")
+                Log.d(TAG, "addFavorite: Unable to Favorite due to ${e.message}")
                 Toast.makeText(
                     this,
-                    "Unable to add selection to your Favorites due to ${e.message}",
+                    "Unable to add selection to Favorites due to ${e.message}",
                     Toast.LENGTH_SHORT
                 ).show()
             }
     }
 
     private fun removeFavorite() {
-        Log.d(TAG, "removeFavorite: Removing selection from your Favorites")
+        Log.d(TAG, "removeFavorite: Removing selection from Favorites")
         val timestamp = System.currentTimeMillis()
 
         val hashMap = HashMap<String, Any>()
@@ -305,13 +307,13 @@ class PdfDetailsActivity : AppCompatActivity() {
         ref.child(firebaseAuth.uid!!).child("Favorites").child(bookId)
             .removeValue()
             .addOnSuccessListener {
-                Log.d(TAG, "removeFavorite: Removing selection from your Favorites")
+                Log.d(TAG, "removeFavorite: Removing selection from Favorites")
             }
             .addOnFailureListener { e ->
-                Log.d(TAG, "Unable to remove selection from your Favorites due to ${e.message}")
+                Log.d(TAG, "Unable to remove selection from Favorites due to ${e.message}")
                 Toast.makeText(
                     this,
-                    "Unable to add to your Favorites due to ${e.message}",
+                    "Unable to Favorite due to ${e.message}",
                     Toast.LENGTH_SHORT
                 ).show()
             }

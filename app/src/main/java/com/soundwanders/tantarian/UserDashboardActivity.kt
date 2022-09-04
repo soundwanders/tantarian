@@ -1,9 +1,11 @@
 package com.soundwanders.tantarian
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -32,11 +34,22 @@ class UserDashboardActivity : AppCompatActivity() {
         setupWithViewPagerAdapter(binding.viewPager)
         binding.tabLayout.setupWithViewPager(binding.viewPager)
 
-        // sign out on click
+        // log out on click
         binding.logoutBtn.setOnClickListener {
-            firebaseAuth.signOut()
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Delete")
+                .setMessage("Log out of your account?")
+                .setPositiveButton("Log Out") {a, d ->
+                    Toast.makeText(this, "Logging out...", Toast.LENGTH_SHORT).show()
+                    firebaseAuth.signOut()
+                    finish()
+                }
+                .setNegativeButton("Cancel") { a, d ->
+                    a.dismiss()
+                }
+                .show()
+
+            checkUser()
         }
     }
 

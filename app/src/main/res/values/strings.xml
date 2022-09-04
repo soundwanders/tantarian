@@ -53,8 +53,8 @@
     <string name="read">Read</string>
     <string name="reading_book">Read Book</string>
     <string name="download">Download</string>
+    <string name="favorite">Favorite</string>
 
     <string name="blank_fragment">Blank fragment!</string>
-    <string name="favorite">Favorite</string>
-    <string name="remove_favorite">Remove</string>
+    <string name="pages_placeholder">N/N</string>
 </resources>

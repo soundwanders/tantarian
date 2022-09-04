@@ -13,8 +13,7 @@
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
         android:layout_height="205dp"
-        android:background="@drawable/shape_toolbar01"
-    >
+        android:background="@drawable/shape_toolbar01">
 
         <ImageButton
             android:id="@+id/backBtn"
@@ -57,18 +56,17 @@
         android:layout_height="match_parent"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginTop="225dp"
-    >
+        android:layout_marginTop="225dp" >
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-        >
+            android:layout_height="wrap_content" >
+
             <!-- Name -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/nameTil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hintEnabled="false">
+                app:hintEnabled="false" >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nameEt"
@@ -94,7 +92,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_below="@id/nameTil"
                 app:hintEnabled="false"
-                app:passwordToggleEnabled="false">
+                app:passwordToggleEnabled="false" >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/emailEt"
@@ -120,7 +118,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_below="@id/emailTil"
                 app:hintEnabled="false"
-                app:passwordToggleEnabled="true">
+                app:passwordToggleEnabled="true" >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordEt"
@@ -146,8 +144,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_below="@id/passwordTil"
                 app:hintEnabled="false"
-                app:passwordToggleEnabled="false"
-                >
+                app:passwordToggleEnabled="false" >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/confirmPasswordEt"

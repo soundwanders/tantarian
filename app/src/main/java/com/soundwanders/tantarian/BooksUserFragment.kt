@@ -81,7 +81,7 @@ class BooksUserFragment : Fragment {
 
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 try {
-                    adapterPdfUser.filter.filter(s)!!
+                    adapterPdfUser.filter.filter(s)
                 }
                 catch (e: Exception) {
                     Log.d(TAG, "onTextChanged: Search Error: ${e.message}")

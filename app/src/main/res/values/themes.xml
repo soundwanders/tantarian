@@ -15,7 +15,6 @@
 
         <item name="colorError">@color/red_500</item>
         <item name="colorOnError">@color/black</item>
-
     </style>
 
 </resources>

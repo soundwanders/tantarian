@@ -64,6 +64,14 @@ class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filter
             intent.putExtra("bookId", bookId)
             context.startActivity(intent)
         }
+
+        binding.readBookBtn.setOnClickListener {
+            // touch book image to read directly from dashboard list
+            // added to create one-step process, instead of having to go to Details -> read btn
+            val intent = Intent(context, PdfViewActivity::class.java)
+            intent.putExtra("bookId", bookId)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount() : Int {
