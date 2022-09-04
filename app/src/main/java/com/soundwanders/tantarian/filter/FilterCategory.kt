@@ -1,5 +1,7 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.filter
 import android.widget.Filter
+import com.soundwanders.tantarian.adapter.AdapterCategory
+import com.soundwanders.tantarian.models.ModelCategory
 
 class FilterCategory: Filter {
     private var filterList: ArrayList<ModelCategory>

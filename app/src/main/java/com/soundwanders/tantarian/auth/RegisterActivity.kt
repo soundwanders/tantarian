@@ -1,15 +1,15 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.auth
 
 import android.app.ProgressDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.soundwanders.tantarian.dashboard.UserDashboardActivity
 import com.soundwanders.tantarian.databinding.ActivityRegisterBinding
-import java.util.regex.Pattern
 
 class RegisterActivity : AppCompatActivity() {
     // view binding

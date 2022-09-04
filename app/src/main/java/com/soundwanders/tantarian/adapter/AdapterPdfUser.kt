@@ -1,4 +1,4 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -8,7 +8,12 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.soundwanders.tantarian.models.ModelBook
+import com.soundwanders.tantarian.TantarianApplication
+import com.soundwanders.tantarian.books.BookDetailsActivity
+import com.soundwanders.tantarian.books.BookViewActivity
 import com.soundwanders.tantarian.databinding.RowPdfUserBinding
+import com.soundwanders.tantarian.filter.FilterPdfUser
 
 class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filterable {
     // bind row_pdf_user.xml --> RowPdfUserBinding
@@ -16,10 +21,10 @@ class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filter
 
     private var context: Context
     private var filter: FilterPdfUser? = null
-    private var filterList: ArrayList<ModelPdf>
-    var pdfArrayList: ArrayList<ModelPdf>
+    private var filterList: ArrayList<ModelBook>
+    var pdfArrayList: ArrayList<ModelBook>
 
-    constructor(context: Context, pdfArrayList: ArrayList<ModelPdf>) {
+    constructor(context: Context, pdfArrayList: ArrayList<ModelBook>) {
         this.context = context
         this.pdfArrayList = pdfArrayList
         this.filterList = pdfArrayList
@@ -52,7 +57,13 @@ class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filter
         holder.dateTv.text = formattedDate
 
         // page number irrelevant in this context, so we pass it as null
-        TantarianApplication.loadFromUrlSinglePage(url, title, holder.pdfView, holder.progressBar, null )
+        TantarianApplication.loadFromUrlSinglePage(
+            url,
+            title,
+            holder.pdfView,
+            holder.progressBar,
+            null
+        )
 
         TantarianApplication.loadCategory(categoryId, holder.categoryTv)
 
@@ -60,7 +71,7 @@ class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filter
 
         holder.itemView.setOnClickListener {
             // pass bookId with intent, used to retrieve book data
-            val intent = Intent(context, PdfDetailsActivity::class.java)
+            val intent = Intent(context, BookDetailsActivity::class.java)
             intent.putExtra("bookId", bookId)
             context.startActivity(intent)
         }
@@ -68,7 +79,7 @@ class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filter
         binding.readBookBtn.setOnClickListener {
             // touch book image to read directly from dashboard list
             // added to create one-step process, instead of having to go to Details -> read btn
-            val intent = Intent(context, PdfViewActivity::class.java)
+            val intent = Intent(context, BookViewActivity::class.java)
             intent.putExtra("bookId", bookId)
             context.startActivity(intent)
         }

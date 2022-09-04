@@ -1,4 +1,4 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.adapter
 
 import android.app.AlertDialog
 import android.content.Context
@@ -9,7 +9,10 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.FirebaseDatabase
+import com.soundwanders.tantarian.models.ModelCategory
+import com.soundwanders.tantarian.books.BookListAdminActivity
 import com.soundwanders.tantarian.databinding.RowCategoryBinding
+import com.soundwanders.tantarian.filter.FilterCategory
 
 // RecyclerView makes it easy to efficiently display large sets of data
 // You supply the data and define how each item looks ...
@@ -20,7 +23,7 @@ class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
     private val context: Context
     var categoryArrayList: ArrayList<ModelCategory>
     private var filterList: ArrayList<ModelCategory>
-    private var filter: FilterCategory ? = null
+    private var filter: FilterCategory? = null
     private lateinit var binding: RowCategoryBinding
 
     constructor(context: Context, categoryArrayList: ArrayList<ModelCategory>) {
@@ -62,7 +65,7 @@ class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
         }
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, PdfListAdminActivity::class.java)
+            val intent = Intent(context, BookListAdminActivity::class.java)
             intent.putExtra("categoryId", id)
             intent.putExtra("category", category)
             context.startActivity(intent)

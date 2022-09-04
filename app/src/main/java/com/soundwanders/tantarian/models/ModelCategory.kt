@@ -1,4 +1,4 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.models
 
 class ModelCategory {
     // matches the variables used in firebase store

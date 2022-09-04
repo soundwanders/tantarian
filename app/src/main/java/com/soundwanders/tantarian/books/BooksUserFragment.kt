@@ -1,4 +1,4 @@
-package com.soundwanders.tantarian
+package com.soundwanders.tantarian.books
 
 import android.os.Bundle
 import android.text.Editable
@@ -13,6 +13,8 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.soundwanders.tantarian.adapter.AdapterPdfUser
+import com.soundwanders.tantarian.models.ModelBook
 import com.soundwanders.tantarian.databinding.FragmentBooksUserBinding
 
 class BooksUserFragment : Fragment {
@@ -38,7 +40,7 @@ class BooksUserFragment : Fragment {
     private var category = ""
     private var uid = ""
 
-    private lateinit var pdfArrayList: ArrayList<ModelPdf>
+    private lateinit var pdfArrayList: ArrayList<ModelBook>
     private lateinit var adapterPdfUser: AdapterPdfUser
 
     constructor()
@@ -101,7 +103,7 @@ class BooksUserFragment : Fragment {
             override fun onDataChange(snapshot: DataSnapshot) {
                 pdfArrayList.clear()
                 for (ds in snapshot.children) {
-                    val model = ds.getValue(ModelPdf::class.java)
+                    val model = ds.getValue(ModelBook::class.java)
 
                     pdfArrayList.add(model!!)
                 }
@@ -125,7 +127,7 @@ class BooksUserFragment : Fragment {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     pdfArrayList.clear()
                     for (ds in snapshot.children) {
-                        val model = ds.getValue(ModelPdf::class.java)
+                        val model = ds.getValue(ModelBook::class.java)
 
                         pdfArrayList.add(model!!)
                     }
@@ -149,7 +151,7 @@ class BooksUserFragment : Fragment {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     pdfArrayList.clear()
                     for (ds in snapshot.children) {
-                        val model = ds.getValue(ModelPdf::class.java)
+                        val model = ds.getValue(ModelBook::class.java)
 
                         pdfArrayList.add(model!!)
                     }
