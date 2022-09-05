@@ -22,6 +22,15 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="forgot_password">Forgot password?</string>
 
+    <!-- User Profile -->
+    <string name="profile">Profile</string>
+    <string name="user_profile">Viewing User Profile! 🐼</string>
+    <string name="account">Account</string>
+    <string name="user_profile_avatar">User Avatar</string>
+    <string name="member_since">Member Since</string>
+    <string name="favorite_books">Favorites</string>
+    <string name="edit_profile">Edit Your Profile</string>
+
     <!-- Buttons -->
     <string name="submit">Submit</string>
     <string name="search">Search</string>
@@ -58,5 +67,7 @@
     <string name="attached_successfully">👍 Pdf Attached!</string>
 
     <string name="blank_fragment">Blank fragment!</string>
-    <string name="profile">Profile</string>
+    <string name="update_profile">Save Changes</string>
+    <string name="deselect_favorite">Deselect Favorite</string>
+    <string name="your_favorites">Your Favorites...</string>
 </resources>

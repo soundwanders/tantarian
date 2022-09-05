@@ -5,15 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back01"
-    tools:context=".auth.LoginActivity" >
+    tools:context=".books.BookEditActivity"
+    android:background="@drawable/back01" >
 
     <!-- Toolbar -->
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:background="@drawable/shape_toolbar01" >
+        android:background="@drawable/shape_toolbar01">
 
         <ImageButton
             android:id="@+id/backBtn"
@@ -28,120 +28,106 @@
             android:minWidth="48dp"
             android:minHeight="48dp"
             android:src="@drawable/ic_back_black" />
+
         <ImageView
-            android:id="@+id/iconIv"
+            android:id="@+id/profileIv"
             android:layout_width="115dp"
             android:layout_height="115dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/logo" />
+            android:contentDescription="@string/user_profile_avatar"
+            android:src="@drawable/ic_profile_black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/iconIv"
+            android:layout_below="@id/profileIv"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="sans-serif-black"
-            android:text="@string/request_user_login"
+            android:text="@string/edit_profile"
             android:textColor="@color/black"
             android:textSize="28sp" />
     </RelativeLayout>
 
-    <!-- No Account / Sign Up for New Account -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="275dp"
-        android:layout_marginEnd="30dp" >
-
+        android:layout_height="wrap_content"
+        android:layout_marginTop="275dp">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <!-- Email -->
+            android:layout_height="wrap_content">
+
+            <!-- Edit description -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                app:hintEnabled="false"
+                android:autofillHints="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_edittext01"
+                    android:drawableStart="@drawable/ic_person_gray"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:inputType="textPersonName|textCapSentences"
+                    android:hint="@string/name"
+                    android:autofillHints="false"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray01"
+                    android:textCursorDrawable="@null" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Edit title -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/emailTil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hintEnabled="false" >
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/nameTil"
+                app:hintEnabled="false"
+                android:autofillHints="false">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/emailEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:autofillHints="false"
                     android:background="@drawable/shape_edittext01"
                     android:drawableStart="@drawable/ic_email_gray"
-                    android:hint="@string/email"
-                    android:inputType="textEmailAddress"
+                    android:drawablePadding="10dp"
                     android:padding="10dp"
+                    android:inputType="textEmailAddress|text"
+                    android:hint="@string/email"
+                    android:autofillHints="false"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray01"
                     android:textCursorDrawable="@null" />
+
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Password -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/passwordTil"
+            <Button
+                android:id="@+id/updateBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/emailTil"
-                android:layout_marginTop="10dp"
-                app:hintEnabled="false"
-                app:passwordToggleEnabled="false" >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/passwordEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="false"
-                    android:background="@drawable/shape_edittext01"
-                    android:drawableStart="@drawable/ic_lock_gray"
-                    android:hint="@string/password"
-                    android:inputType="textPassword"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/gray01"
-                    android:textCursorDrawable="@null" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Forgot Password -->
-            <TextView
-                android:id="@+id/forgotPasswordTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/passwordTil"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="8dp"
-                android:padding="6dp"
-                android:text="@string/forgot_password"
-                android:textColor="@color/white" />
-
-            <!-- Sign Up New User -->
-            <TextView
-                android:id="@+id/signUpTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/passwordTil"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="142dp"
-                android:padding="6dp"
-                android:text="@string/register_user"
-                android:textColor="@color/white" />
-
-            <!-- Login Button -->
-            <Button
-                android:id="@+id/loginBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/forgotPasswordTv"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/shape_button01"
-                android:text="@string/login"
+                android:text="@string/update_profile"
                 android:textColor="@color/black" />
+
         </RelativeLayout>
     </ScrollView>
+
 </RelativeLayout>

@@ -15,13 +15,13 @@ import com.soundwanders.tantarian.books.BookViewActivity
 import com.soundwanders.tantarian.databinding.RowBookUserBinding
 import com.soundwanders.tantarian.filter.FilterPdfUser
 
-class AdapterPdfUser: RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filterable {
+class AdapterBookUser: RecyclerView.Adapter<AdapterBookUser.HolderPdfUser>, Filterable {
     // bind row_pdf_user.xml --> RowPdfUserBinding
     private lateinit var binding: RowBookUserBinding
 
+    private val filterList: ArrayList<ModelBook>
     private var context: Context
     private var filter: FilterPdfUser? = null
-    private var filterList: ArrayList<ModelBook>
     var pdfArrayList: ArrayList<ModelBook>
 
     constructor(context: Context, pdfArrayList: ArrayList<ModelBook>) {

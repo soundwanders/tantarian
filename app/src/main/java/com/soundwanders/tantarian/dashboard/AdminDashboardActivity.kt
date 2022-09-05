@@ -17,6 +17,7 @@ import com.soundwanders.tantarian.models.ModelCategory
 import com.soundwanders.tantarian.adapter.AdapterCategory
 import com.soundwanders.tantarian.books.BookAddActivity
 import com.soundwanders.tantarian.databinding.ActivityAdminDashboardBinding
+import com.soundwanders.tantarian.profile.ProfileActivity
 
 
 class AdminDashboardActivity : AppCompatActivity() {
@@ -74,8 +75,13 @@ class AdminDashboardActivity : AppCompatActivity() {
             startActivity(Intent(this, AdminAddCategoryActivity::class.java))
         }
 
+        // Fab = floating action button
         binding.addPdfFab.setOnClickListener {
             startActivity(Intent(this, BookAddActivity::class.java))
+        }
+
+        binding.profileBtn.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
     }
 

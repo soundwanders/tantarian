@@ -13,7 +13,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.soundwanders.tantarian.adapter.AdapterPdfUser
+import com.soundwanders.tantarian.adapter.AdapterBookUser
 import com.soundwanders.tantarian.models.ModelBook
 import com.soundwanders.tantarian.databinding.FragmentBooksUserBinding
 
@@ -41,7 +41,7 @@ class BooksUserFragment : Fragment {
     private var uid = ""
 
     private lateinit var pdfArrayList: ArrayList<ModelBook>
-    private lateinit var adapterPdfUser: AdapterPdfUser
+    private lateinit var adapterBookUser: AdapterBookUser
 
     constructor()
 
@@ -83,7 +83,7 @@ class BooksUserFragment : Fragment {
 
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 try {
-                    adapterPdfUser.filter.filter(s)
+                    adapterBookUser.filter.filter(s)
                 }
                 catch (e: Exception) {
                     Log.d(TAG, "onTextChanged: Search Error: ${e.message}")
@@ -108,8 +108,8 @@ class BooksUserFragment : Fragment {
                     pdfArrayList.add(model!!)
                 }
 
-                adapterPdfUser = AdapterPdfUser(context!!, pdfArrayList)
-                binding.booksRv.adapter = adapterPdfUser
+                adapterBookUser = AdapterBookUser(context!!, pdfArrayList)
+                binding.booksRv.adapter = adapterBookUser
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -132,8 +132,8 @@ class BooksUserFragment : Fragment {
                         pdfArrayList.add(model!!)
                     }
 
-                    adapterPdfUser = AdapterPdfUser(context!!, pdfArrayList)
-                    binding.booksRv.adapter = adapterPdfUser
+                    adapterBookUser = AdapterBookUser(context!!, pdfArrayList)
+                    binding.booksRv.adapter = adapterBookUser
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -156,8 +156,8 @@ class BooksUserFragment : Fragment {
                         pdfArrayList.add(model!!)
                     }
 
-                    adapterPdfUser = AdapterPdfUser(context!!, pdfArrayList)
-                    binding.booksRv.adapter = adapterPdfUser
+                    adapterBookUser = AdapterBookUser(context!!, pdfArrayList)
+                    binding.booksRv.adapter = adapterBookUser
                 }
 
                 override fun onCancelled(error: DatabaseError) {

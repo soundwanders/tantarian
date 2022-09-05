@@ -19,7 +19,7 @@ class BookEditActivity : AppCompatActivity() {
         private const val TAG = "PDF_EDIT_TAG"
     }
 
-    // get bookId from intent started in AdapterPdfAdmin
+    // get bookId from intent started in AdapterBookAdmin
     private var bookId = ""
 
     // array lists to store category title and id

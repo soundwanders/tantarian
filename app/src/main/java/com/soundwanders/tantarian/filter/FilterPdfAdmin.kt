@@ -1,17 +1,17 @@
 package com.soundwanders.tantarian.filter
 
 import android.widget.Filter
-import com.soundwanders.tantarian.adapter.AdapterPdfAdmin
+import com.soundwanders.tantarian.adapter.AdapterBookAdmin
 import com.soundwanders.tantarian.models.ModelBook
 
 class FilterPdfAdmin : Filter {
     private var filterList: ArrayList<ModelBook>
 
-    var adapterPdfAdmin: AdapterPdfAdmin
+    var adapterBookAdmin: AdapterBookAdmin
 
-    constructor(filterList: ArrayList<ModelBook>, adapterPdfAdmin: AdapterPdfAdmin) {
+    constructor(filterList: ArrayList<ModelBook>, adapterBookAdmin: AdapterBookAdmin) {
         this.filterList = filterList
-        this.adapterPdfAdmin = adapterPdfAdmin
+        this.adapterBookAdmin = adapterBookAdmin
     }
 
     override fun performFiltering(constraint: CharSequence?) : FilterResults {
@@ -20,14 +20,15 @@ class FilterPdfAdmin : Filter {
 
         if (charConstraint != null && charConstraint.isNotEmpty()) {
             charConstraint = charConstraint.toString().lowercase()
-                var filteredModels = ArrayList<ModelBook>()
-                for (i in filterList.indices) {
-                    if (filterList[i].title.lowercase().contains(charConstraint)) {
-                        filteredModels.add(filterList[i])
-                    }
+
+            var filteredModels = ArrayList<ModelBook>()
+            for (i in filterList.indices) {
+                if (filterList[i].title.lowercase().contains(charConstraint)) {
+                    filteredModels.add(filterList[i])
                 }
-                results.count = filteredModels.size
-                results.values = filteredModels
+            }
+            results.count = filteredModels.size
+            results.values = filteredModels
             }
         else {
             results.count = filterList.size
@@ -37,10 +38,10 @@ class FilterPdfAdmin : Filter {
     }
 
     override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-        adapterPdfAdmin.pdfArrayList = results!!.values as ArrayList<ModelBook>
+        adapterBookAdmin.pdfArrayList = results!!.values as ArrayList<ModelBook>
 
         // it will always be more efficient to use specific change events where possible,
         // Rely on `notifyDataSetChanged` as a last resort
-        adapterPdfAdmin.notifyDataSetChanged()
+        adapterBookAdmin.notifyDataSetChanged()
     }
 }

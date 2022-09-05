@@ -2,7 +2,9 @@ package com.soundwanders.tantarian.dashboard
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -18,6 +20,7 @@ import com.soundwanders.tantarian.models.ModelCategory
 import com.soundwanders.tantarian.R
 import com.soundwanders.tantarian.books.BooksUserFragment
 import com.soundwanders.tantarian.databinding.ActivityUserDashboardBinding
+import com.soundwanders.tantarian.profile.ProfileActivity
 
 class UserDashboardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserDashboardBinding
@@ -52,6 +55,10 @@ class UserDashboardActivity : AppCompatActivity() {
                 .show()
 
             checkUser()
+        }
+
+        binding.profileBtn.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
     }
 
@@ -169,6 +176,9 @@ class UserDashboardActivity : AppCompatActivity() {
         // if user null, return to Main screen
         if (firebaseUser == null) {
             binding.subTitleTv.text = getString(R.string.user_not_logged_in)
+
+            binding.profileBtn.visibility = View.GONE
+            binding.logoutBtn.visibility = View.GONE
         }
         else {
             val email = firebaseUser.email

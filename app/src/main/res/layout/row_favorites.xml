@@ -5,17 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="140dp"
     android:layout_marginBottom="8dp"
-    app:contentPadding="5dp"
+    app:cardBackgroundColor="@color/black"
     app:cardCornerRadius="5dp"
     app:cardElevation="0dp"
-    app:cardBackgroundColor="@color/black" >
+    app:contentPadding="5dp" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="6dp"
-        android:layout_marginBottom="12dp"
-        android:background="@color/black" >
+        android:layout_height="wrap_content" >
 
         <RelativeLayout
             android:id="@+id/pdfRl"
@@ -23,13 +20,6 @@
             android:layout_height="140dp"
             android:layout_marginEnd="20dp"
             android:background="@color/gray03" >
-
-            <Button
-                android:id="@+id/readBookBtn"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:backgroundTint="@android:color/transparent" />
 
             <com.github.barteksc.pdfviewer.PDFView
                 android:id="@+id/pdfView"
@@ -48,10 +38,24 @@
             style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/removeFavoriteBtn"
             android:layout_toEndOf="@id/pdfRl"
             android:maxLines="1"
             android:text="@string/book_title"
             android:textColor="@color/white" />
+
+        <ImageButton
+            android:id="@+id/removeFavoriteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="5dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_favorite_white"
+            app:tint="@color/white"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:contentDescription="@string/deselect_favorite"/>
 
         <TextView
             android:id="@+id/descriptionTv"
@@ -99,5 +103,6 @@
             android:text="@string/date_format"
             android:textAlignment="center"
             android:textColor="@color/white" />
+
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

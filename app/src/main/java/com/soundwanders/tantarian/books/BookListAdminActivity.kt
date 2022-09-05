@@ -10,7 +10,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.soundwanders.tantarian.adapter.AdapterPdfAdmin
+import com.soundwanders.tantarian.adapter.AdapterBookAdmin
 import com.soundwanders.tantarian.databinding.ActivityBookListAdminBinding
 import com.soundwanders.tantarian.models.ModelBook
 import kotlin.Exception
@@ -18,7 +18,7 @@ import kotlin.Exception
 class BookListAdminActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBookListAdminBinding
     private lateinit var pdfArrayList: ArrayList<ModelBook>
-    private lateinit var adapterPdfAdmin: AdapterPdfAdmin
+    private lateinit var adapterBookAdmin: AdapterBookAdmin
 
     private companion object {
         const val TAG = "PDF_LIST_ADMIN"
@@ -48,7 +48,7 @@ class BookListAdminActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 try {
-                    adapterPdfAdmin.filter.filter(s)
+                    adapterBookAdmin.filter.filter(s)
                 }
                 catch (e: Exception) {
                     Log.d(TAG, "onTextChanged: ${e.message}")
@@ -84,8 +84,8 @@ class BookListAdminActivity : AppCompatActivity() {
                             Log.d(TAG, "onDataChange: ${model.title} ${model.categoryId}")
                         }
                     }
-                    adapterPdfAdmin = AdapterPdfAdmin(this@BookListAdminActivity, pdfArrayList)
-                    binding.booksRv.adapter = adapterPdfAdmin
+                    adapterBookAdmin = AdapterBookAdmin(this@BookListAdminActivity, pdfArrayList)
+                    binding.booksRv.adapter = adapterBookAdmin
                 }
                 override fun onCancelled(error: DatabaseError) {
                 }

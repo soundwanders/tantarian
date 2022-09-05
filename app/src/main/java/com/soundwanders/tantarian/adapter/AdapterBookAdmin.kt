@@ -16,7 +16,7 @@ import com.soundwanders.tantarian.books.BookEditActivity
 import com.soundwanders.tantarian.databinding.RowBookAdminBinding
 import com.soundwanders.tantarian.filter.FilterPdfAdmin
 
-class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Filterable{
+class AdapterBookAdmin : RecyclerView.Adapter<AdapterBookAdmin.HolderPdfAdmin>, Filterable{
     private lateinit var binding:RowBookAdminBinding
     private var context: Context
 
