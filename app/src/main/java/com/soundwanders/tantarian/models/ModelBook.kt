@@ -10,6 +10,7 @@ class ModelBook {
     var timestamp:Long = 0
     var viewsCount:Long = 0
     var downloadsCount:Long = 0
+    var isFavorite = false
 
     // empty constructor required by Firebase
     constructor()
@@ -23,7 +24,8 @@ class ModelBook {
         url: String,
         timestamp: Long,
         viewsCount: Long,
-        downloadsCount: Long
+        downloadsCount: Long,
+        isFavorite: Boolean
     ) {
         this.uid = uid
         this.id = id
@@ -34,6 +36,7 @@ class ModelBook {
         this.timestamp = timestamp
         this.viewsCount = viewsCount
         this.downloadsCount = downloadsCount
+        this.isFavorite = isFavorite
     }
 
 

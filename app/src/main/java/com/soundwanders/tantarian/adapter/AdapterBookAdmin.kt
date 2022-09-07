@@ -18,13 +18,13 @@ import com.soundwanders.tantarian.filter.FilterPdfAdmin
 
 class AdapterBookAdmin : RecyclerView.Adapter<AdapterBookAdmin.HolderPdfAdmin>, Filterable{
     private lateinit var binding:RowBookAdminBinding
+
     private var context: Context
+    private var filter: FilterPdfAdmin? = null
+    private val filterList: ArrayList<ModelBook>
 
     // set pdfArrayList as public to allow access by FilterPdfAdmin Activity
     var pdfArrayList: ArrayList<ModelBook>
-
-    private val filterList: ArrayList<ModelBook>
-    private var filter: FilterPdfAdmin? = null
 
     constructor(context: Context, pdfArrayList: ArrayList<ModelBook>) : super() {
         this.context = context

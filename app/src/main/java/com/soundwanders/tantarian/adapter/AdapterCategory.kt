@@ -20,11 +20,13 @@ import com.soundwanders.tantarian.filter.FilterCategory
 // learn more: https://developer.android.com/guide/topics/ui/layout/recyclerview
 
 class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Filterable {
+    private lateinit var binding: RowCategoryBinding
+
     private val context: Context
-    var categoryArrayList: ArrayList<ModelCategory>
     private var filterList: ArrayList<ModelCategory>
     private var filter: FilterCategory? = null
-    private lateinit var binding: RowCategoryBinding
+
+    var categoryArrayList: ArrayList<ModelCategory>
 
     constructor(context: Context, categoryArrayList: ArrayList<ModelCategory>) {
         this.context = context

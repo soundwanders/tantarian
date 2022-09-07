@@ -11,12 +11,15 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.soundwanders.tantarian.R
 import com.soundwanders.tantarian.TantarianApplication
+import com.soundwanders.tantarian.adapter.AdapterFavorites
 import com.soundwanders.tantarian.databinding.ActivityProfileBinding
+import com.soundwanders.tantarian.models.ModelBook
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
-
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var booksArrayList: ArrayList<ModelBook>
+    private lateinit var adapterFavorites: AdapterFavorites
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +28,7 @@ class ProfileActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         loadUserProfile()
+        loadFavorites()
 
         binding.backBtn.setOnClickListener {
             onBackPressed()
@@ -66,6 +70,39 @@ class ProfileActivity : AppCompatActivity() {
                     catch (e: Exception) {
 
                     }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
+    }
+
+    private fun loadFavorites() {
+        booksArrayList = ArrayList()
+
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        ref.child(firebaseAuth.uid!!)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    booksArrayList.clear()
+
+                    for (ds in snapshot.children) {
+                        // only need id of book, rest of data is loaded from AdapterFavorites
+                        val bookId = "${ds.child("bookId").value}"
+
+                        val modelBook = ModelBook()
+                        modelBook.id = bookId
+
+                        booksArrayList.add(modelBook)
+                    }
+
+                    // set the number of Favorite Books
+                    binding.favoritesCountTv.text = "${booksArrayList.size}"
+
+                    // set up adapter and bind to our Favorites List recycler view
+                    adapterFavorites = AdapterFavorites(this@ProfileActivity, booksArrayList)
+                    binding.favoritesRv.adapter = adapterFavorites
                 }
 
                 override fun onCancelled(error: DatabaseError) {

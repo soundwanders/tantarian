@@ -28,9 +28,7 @@ import com.soundwanders.tantarian.databinding.ActivityEditProfileBinding
 
 class EditProfileActivity: AppCompatActivity() {
     private lateinit var binding: ActivityEditProfileBinding
-
     private lateinit var firebaseAuth: FirebaseAuth
-
     private lateinit var progressDialog: ProgressDialog
 
     private var imageUri: Uri? = null
@@ -177,8 +175,8 @@ class EditProfileActivity: AppCompatActivity() {
 
     private fun chooseDeviceCamera() {
         val values = ContentValues()
-        values.put(MediaStore.Images.Media.TITLE, "Temp_title")
-        values.put(MediaStore.Images.Media.DESCRIPTION, "Temp_description")
+        values.put(MediaStore.Images.Media.TITLE, "temp_title")
+        values.put(MediaStore.Images.Media.DESCRIPTION, "temp_description")
 
         imageUri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
 

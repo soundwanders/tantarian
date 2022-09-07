@@ -10,11 +10,13 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import com.github.barteksc.pdfviewer.PDFView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import com.soundwanders.tantarian.books.BookDetailsActivity
 import java.util.*
 
 class TantarianApplication : Application() {
@@ -58,48 +60,48 @@ class TantarianApplication : Application() {
                 }
         }
 
-    fun loadFromUrlSinglePage(
-        pdfUrl: String,
-        pdfTitle: String,
-        pdfView: PDFView,
-        progressBar: ProgressBar,
-        pagesTv: TextView?
-    ) {
-        val TAG = "PDF_ADD_TAG"
-        // get pdf file reference and metadata from Firebase storage
-        val ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl)
-        ref.getBytes(Constants.MAX_ALLOWABLE_BYTES_PDF)
-            .addOnSuccessListener { bytes ->
-                Log.d(TAG, "loadPdfSize: Size Bytes $bytes")
+        fun loadFromUrlSinglePage(
+            pdfUrl: String,
+            pdfTitle: String,
+            pdfView: PDFView,
+            progressBar: ProgressBar,
+            pagesTv: TextView?
+        ) {
+            val TAG = "PDF_ADD_TAG"
+            // get pdf file reference and metadata from Firebase storage
+            val ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl)
+            ref.getBytes(Constants.MAX_ALLOWABLE_BYTES_PDF)
+                .addOnSuccessListener { bytes ->
+                    Log.d(TAG, "loadPdfSize: Size Bytes $bytes")
 
-                pdfView.fromBytes(bytes)
-                    .pages(0)
-                    .spacing(0)
-                    .swipeHorizontal(false)
-                    .enableSwipe(false)
-                    .onError { t ->
-                        progressBar.visibility = View.INVISIBLE
-                        Log.d(TAG, "loadFromUrlSinglePage: ${t.message}")
-                    }
-                    .onPageError { page, t ->
-                        progressBar.visibility = View.INVISIBLE
-                        Log.d(TAG, "loadFromUrlSinglePage: ${t.message}")
-                    }
-                    .onLoad { nbPages ->
-                        progressBar.visibility = View.INVISIBLE
-                        Log.d(TAG, "loadFromUrlSinglePage: Pages: $nbPages")
-
-                        // if pages text view is not null, set page numbers
-                        if (pagesTv != null) {
-                            pagesTv.text = "$nbPages"
+                    pdfView.fromBytes(bytes)
+                        .pages(0)
+                        .spacing(0)
+                        .swipeHorizontal(false)
+                        .enableSwipe(false)
+                        .onError { t ->
+                            progressBar.visibility = View.INVISIBLE
+                            Log.d(TAG, "loadFromUrlSinglePage: ${t.message}")
                         }
-                    }
-                    .load()
+                        .onPageError { page, t ->
+                            progressBar.visibility = View.INVISIBLE
+                            Log.d(TAG, "loadFromUrlSinglePage: ${t.message}")
+                        }
+                        .onLoad { nbPages ->
+                            progressBar.visibility = View.INVISIBLE
+                            Log.d(TAG, "loadFromUrlSinglePage: Pages: $nbPages")
+
+                            // if pages text view is not null, set page numbers
+                            if (pagesTv != null) {
+                                pagesTv.text = "$nbPages"
+                            }
+                        }
+                        .load()
+                }
+                .addOnFailureListener { e ->
+                    Log.d(TAG, "loadPdfSize: Unable to retrieve file data due to ${e.message}.")
+                }
             }
-            .addOnFailureListener { e ->
-                Log.d(TAG, "loadPdfSize: Unable to retrieve file data due to ${e.message}.")
-            }
-        }
 
         fun loadCategory(categoryId: String, categoryTv: TextView) {
             // load category using its firebase-assigned id
@@ -201,6 +203,34 @@ class TantarianApplication : Application() {
                     override fun onCancelled(error: DatabaseError) {
                     }
                 })
+        }
+
+        fun removeFavorite(context: Context, bookId: String) {
+            val TAG = "REMOVE_FAVORITE_TAG"
+            Log.d(TAG, "removeFavorite: Removing selection from Favorites")
+
+            val firebaseAuth = FirebaseAuth.getInstance()
+
+            // save favorite to database
+            val ref = FirebaseDatabase.getInstance().getReference("Users")
+            ref.child(firebaseAuth.uid!!).child("Favorites").child(bookId)
+                .removeValue()
+                .addOnSuccessListener {
+                    Log.d(TAG, "removeFavorite: Removing selection from Favorites")
+                    Toast.makeText(
+                        context,
+                        "Removed from Favorites",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                .addOnFailureListener { e ->
+                    Log.d(TAG, "Unable to remove from Favorites due to ${e.message}")
+                    Toast.makeText(
+                        context,
+                        "Unable to Favorite due to ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
         }
     }
 }

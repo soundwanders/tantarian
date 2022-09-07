@@ -22,6 +22,7 @@ class AdapterBookUser: RecyclerView.Adapter<AdapterBookUser.HolderPdfUser>, Filt
     private val filterList: ArrayList<ModelBook>
     private var context: Context
     private var filter: FilterPdfUser? = null
+
     var pdfArrayList: ArrayList<ModelBook>
 
     constructor(context: Context, pdfArrayList: ArrayList<ModelBook>) {

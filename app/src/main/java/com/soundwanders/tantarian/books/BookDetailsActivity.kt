@@ -24,15 +24,13 @@ import com.soundwanders.tantarian.databinding.ActivityBookDetailsBinding
 import java.io.FileOutputStream
 
 class BookDetailsActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityBookDetailsBinding
+    private lateinit var progressDialog: ProgressDialog
+    private lateinit var firebaseAuth: FirebaseAuth
 
     private var bookId = ""
     private var bookUrl = ""
     private var bookTitle = ""
-
-    private lateinit var progressDialog: ProgressDialog
-    private lateinit var firebaseAuth: FirebaseAuth
 
     // boolean used to check if selection is in User favorites
     private var isFavorite = false
@@ -92,7 +90,10 @@ class BookDetailsActivity : AppCompatActivity() {
                     .show()
             }
             else {
-                if (isFavorite) removeFavorite() else addFavorite()
+                if (isFavorite) {
+                    TantarianApplication.removeFavorite(this, bookId)
+                }
+                else addFavorite()
             }
         }
     }
