@@ -2,6 +2,7 @@ package com.soundwanders.tantarian.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,8 +18,8 @@ import com.soundwanders.tantarian.models.ModelBook
 
 class AdapterFavorites : RecyclerView.Adapter<AdapterFavorites.HolderBookFavorites> {
     private val context: Context
-    private var booksArrayList: ArrayList<ModelBook>
     private lateinit var binding: RowFavoritesBinding
+    var booksArrayList: ArrayList<ModelBook>
 
     constructor(context: Context, booksArrayList: ArrayList<ModelBook>) {
         this.context = context
@@ -28,7 +29,7 @@ class AdapterFavorites : RecyclerView.Adapter<AdapterFavorites.HolderBookFavorit
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): AdapterFavorites.HolderBookFavorites {
+    ): HolderBookFavorites {
         binding = RowFavoritesBinding.inflate(LayoutInflater.from(context), parent, false)
         return HolderBookFavorites(binding.root)
     }
@@ -56,27 +57,29 @@ class AdapterFavorites : RecyclerView.Adapter<AdapterFavorites.HolderBookFavorit
 
     private fun loadBookDetails(model: ModelBook, holder: AdapterFavorites.HolderBookFavorites) {
         val bookId = model.id
+        Log.d("BOOK_ID", bookId)
 
         val ref = FirebaseDatabase.getInstance().getReference("Books")
         ref.child(bookId)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
+
                     // get book data
                     val title = "${snapshot.child("title").value}"
                     val categoryId = "${snapshot.child("categoryId").value}"
                     val description = "${snapshot.child("description").value}"
-                    val timestamp = "${snapshot.child("timestamp").value}"
                     val uid = "${snapshot.child("uid").value}"
                     val url = "${snapshot.child("url").value}"
+                    val timestamp = "${snapshot.child("timestamp").value}"
                     val downloadsCount = "${snapshot.child("downloadsCount").value}"
                     val viewsCount = "${snapshot.child("viewsCount").value}"
+
                     val date = TantarianApplication.formatTimeStamp(timestamp.toLong())
 
                     model.isFavorite = true
                     model.title = title
                     model.description = description
                     model.categoryId = categoryId
-                    model.timestamp = timestamp.toLong()
                     model.uid = uid
                     model.url = url
                     model.viewsCount = viewsCount.toLong()

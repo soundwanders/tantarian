@@ -28,10 +28,6 @@ class UserDashboardActivity : AppCompatActivity() {
     private lateinit var categoryArrayList: ArrayList<ModelCategory>
     private lateinit var viewPagerAdapter: ViewPagerAdapter
 
-
-    private var toggleButtonVis: View? = null
-    private var profileBtnVisible = true
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUserDashboardBinding.inflate(layoutInflater)

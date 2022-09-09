@@ -21,7 +21,7 @@ class BooksUserFragment : Fragment {
     private lateinit var binding: FragmentBooksUserBinding
 
     companion object {
-        private const val TAG = "BOOKS_USER_TAG"
+        const val TAG = "PDF_LIST_USER"
 
         fun newInstance(categoryId: String, category: String, uid: String) : BooksUserFragment {
             val fragment = BooksUserFragment()
@@ -91,6 +91,7 @@ class BooksUserFragment : Fragment {
             }
 
             override fun afterTextChanged(p0: Editable?) {
+
             }
         }}
         return binding.root
@@ -147,7 +148,7 @@ class BooksUserFragment : Fragment {
         val ref = FirebaseDatabase.getInstance().getReference("Books")
 
         ref.orderByChild("categoryId").equalTo(categoryId)
-            .addValueEventListener(object: ValueEventListener {
+            .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     pdfArrayList.clear()
                     for (ds in snapshot.children) {

@@ -16,7 +16,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import com.soundwanders.tantarian.books.BookDetailsActivity
 import java.util.*
 
 class TantarianApplication : Application() {
@@ -61,20 +60,20 @@ class TantarianApplication : Application() {
         }
 
         fun loadFromUrlSinglePage(
-            pdfUrl: String,
-            pdfTitle: String,
-            pdfView: PDFView,
+            bookUrl: String,
+            bookTitle: String,
+            bookView: PDFView,
             progressBar: ProgressBar,
             pagesTv: TextView?
         ) {
             val TAG = "PDF_ADD_TAG"
             // get pdf file reference and metadata from Firebase storage
-            val ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl)
+            val ref = FirebaseStorage.getInstance().getReferenceFromUrl(bookUrl)
             ref.getBytes(Constants.MAX_ALLOWABLE_BYTES_PDF)
                 .addOnSuccessListener { bytes ->
                     Log.d(TAG, "loadPdfSize: Size Bytes $bytes")
 
-                    pdfView.fromBytes(bytes)
+                    bookView.fromBytes(bytes)
                         .pages(0)
                         .spacing(0)
                         .swipeHorizontal(false)

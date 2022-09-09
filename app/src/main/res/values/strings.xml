@@ -24,7 +24,7 @@
 
     <!-- User Profile -->
     <string name="profile">Profile</string>
-    <string name="user_profile">Viewing User Profile! 🐼</string>
+    <string name="user_profile">Welcome Back! 🐼</string>
     <string name="account">Account</string>
     <string name="user_profile_avatar">User Avatar</string>
     <string name="member_since">Member Since</string>
@@ -49,7 +49,7 @@
     <string name="book_description">Description</string>
     <string name="book_category">Category/Genre</string>
     <string name="file_size">File Size</string>
-    <string name="date_format">MM/yyy</string>
+    <string name="date_format">mm/yyyy</string>
     <string name="add_new_book">Add a New Book</string>
     <string name="edit_book">Edit Book</string>
     <string name="save_and_update"><![CDATA[Save & Update]]></string>
@@ -63,7 +63,7 @@
     <string name="reading_book">Tantarian Reader</string>
     <string name="download">Download</string>
     <string name="favorite">Favorite</string>
-    <string name="pages_placeholder">-/-</string>
+    <string name="pages_placeholder">*/*</string>
     <string name="attached_successfully">👍 Pdf Attached!</string>
 
     <string name="blank_fragment">Blank fragment!</string>

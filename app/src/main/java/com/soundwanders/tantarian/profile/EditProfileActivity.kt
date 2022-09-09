@@ -62,9 +62,10 @@ class EditProfileActivity: AppCompatActivity() {
 
     private fun validateData() {
         username = binding.nameEt.text.toString().trim()
+        email = binding.emailEt.text.toString().trim()
 
-        if (username.isEmpty()) {
-            Toast.makeText(this, "Please enter your name", Toast.LENGTH_SHORT).show()
+        if (username.isEmpty() || email.isEmpty()) {
+            Toast.makeText(this, "Please enter your name & e-mail", Toast.LENGTH_SHORT).show()
         }
 
         else {
@@ -84,7 +85,7 @@ class EditProfileActivity: AppCompatActivity() {
         val hashMap: HashMap<String, Any> = HashMap()
         hashMap["name"] = "$username"
         hashMap["email"] = "$email"
-        if (imageUri == null) {
+        if (imageUri != null) {
             hashMap["profileAvatar"] = uploadedImageUrl
         }
 
@@ -129,10 +130,12 @@ class EditProfileActivity: AppCompatActivity() {
             .addValueEventListener(object: ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val name = "${snapshot.child("name").value}"
+                    val email = "${snapshot.child("email").value}"
                     val profileAvatar = "${snapshot.child("profileAvatar").value}"
                     val timestamp = "${snapshot.child("timestamp").value}"
 
                     binding.nameEt.setText(name)
+                    binding.emailEt.setText(email)
 
                     // use Glide image loading for Profile Avatars
                     try {

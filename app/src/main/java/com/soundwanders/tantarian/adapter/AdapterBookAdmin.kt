@@ -16,7 +16,7 @@ import com.soundwanders.tantarian.books.BookEditActivity
 import com.soundwanders.tantarian.databinding.RowBookAdminBinding
 import com.soundwanders.tantarian.filter.FilterPdfAdmin
 
-class AdapterBookAdmin : RecyclerView.Adapter<AdapterBookAdmin.HolderPdfAdmin>, Filterable{
+class AdapterBookAdmin : RecyclerView.Adapter<AdapterBookAdmin.HolderPdfAdmin>, Filterable {
     private lateinit var binding:RowBookAdminBinding
 
     private var context: Context
@@ -39,7 +39,7 @@ class AdapterBookAdmin : RecyclerView.Adapter<AdapterBookAdmin.HolderPdfAdmin>, 
 
     override fun onBindViewHolder(holder: HolderPdfAdmin, position: Int) {
         val model = pdfArrayList[position]
-        val pdfId = model.id
+        val bookId = model.id
         val categoryId = model.categoryId
         val title = model.title
         val description = model.description
@@ -73,7 +73,7 @@ class AdapterBookAdmin : RecyclerView.Adapter<AdapterBookAdmin.HolderPdfAdmin>, 
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, BookDetailsActivity::class.java)
-            intent.putExtra("bookId", pdfId)
+            intent.putExtra("bookId", bookId)
             context.startActivity(intent)
         }
     }

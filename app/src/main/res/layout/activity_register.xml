@@ -35,8 +35,8 @@
             android:layout_height="110dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:src="@drawable/logo"
-            android:contentDescription="@string/app_name" />
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,9 +44,9 @@
             android:layout_below="@id/iconIv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-black"
             android:text="@string/create_account"
             android:textColor="@color/black"
-            android:fontFamily="sans-serif-black"
             android:textSize="26sp" />
     </RelativeLayout>
 
@@ -55,7 +55,7 @@
         android:layout_height="match_parent"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginTop="225dp" >
+        android:layout_marginTop="240dp" >
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
@@ -71,6 +71,7 @@
                     android:id="@+id/nameEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
                     android:background="@drawable/shape_edittext01"
                     android:drawableStart="@drawable/ic_person_gray"
                     android:drawablePadding="10dp"
@@ -97,6 +98,7 @@
                     android:id="@+id/emailEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
                     android:background="@drawable/shape_edittext01"
                     android:drawableStart="@drawable/ic_email_gray"
                     android:drawablePadding="10dp"
@@ -123,6 +125,7 @@
                     android:id="@+id/passwordEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
                     android:background="@drawable/shape_edittext01"
                     android:drawableStart="@drawable/ic_lock_gray"
                     android:drawablePadding="10dp"
@@ -149,6 +152,7 @@
                     android:id="@+id/confirmPasswordEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
                     android:background="@drawable/shape_edittext01"
                     android:drawableStart="@drawable/ic_email_gray"
                     android:drawablePadding="10dp"

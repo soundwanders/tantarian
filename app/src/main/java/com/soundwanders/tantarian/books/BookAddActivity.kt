@@ -148,11 +148,11 @@ class BookAddActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 Log.d(TAG, "uploadPdf: Uploaded Pdf, generating url...")
                 progressDialog.dismiss()
-                Toast.makeText(this, "Uploaded Pdf, generating url...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Uploading $title", Toast.LENGTH_SHORT).show()
                 pdfUri == null
             }
             .addOnFailureListener { e->
-                Log.d(TAG, "uploadPdf: Failed to upload Pdf due to ${e.message}")
+                Log.d(TAG, "uploadPdf: Failed to upload $title due to ${e.message}")
                 progressDialog.dismiss()
                 Toast.makeText(this, "Failed due to ${e.message}", Toast.LENGTH_SHORT).show()
             }
@@ -185,7 +185,7 @@ class BookAddActivity : AppCompatActivity() {
     private var selectedCategoryTitle = ""
 
     private fun categorySelectDialog() {
-        Log.d(TAG, "categorySelectDialog: Showing select Pdf category dialog")
+        Log.d(TAG, "categorySelectDialog: Showing select Book category dialog")
 
         // get string in array of categories from arrayList
         val categoriesArray = arrayOfNulls<String>(categoryArrayList.size)

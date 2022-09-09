@@ -82,7 +82,7 @@ class ProfileActivity : AppCompatActivity() {
         booksArrayList = ArrayList()
 
         val ref = FirebaseDatabase.getInstance().getReference("Users")
-        ref.child(firebaseAuth.uid!!)
+        ref.child(firebaseAuth.uid!!).child("Favorites")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     booksArrayList.clear()

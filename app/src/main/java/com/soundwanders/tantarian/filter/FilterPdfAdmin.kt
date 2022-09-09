@@ -29,7 +29,7 @@ class FilterPdfAdmin : Filter {
             }
             results.count = filteredModels.size
             results.values = filteredModels
-            }
+        }
         else {
             results.count = filterList.size
             results.values = filterList
