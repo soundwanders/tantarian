@@ -192,6 +192,7 @@ class BookDetailsActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
+                    Log.e("ERROR", "Unable to load book details...Error: $error")
                 }
             })
     }
@@ -229,6 +230,7 @@ class BookDetailsActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
+                    Log.e("ERROR", "Error while incrementing download count: $error")
                 }
             })
     }
@@ -268,7 +270,7 @@ class BookDetailsActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    Log.e("ERROR", "Error while checking favorites: $error")
                 }
             })
     }

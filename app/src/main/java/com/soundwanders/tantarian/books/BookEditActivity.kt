@@ -111,14 +111,14 @@ class BookEditActivity : AppCompatActivity() {
                             }
 
                             override fun onCancelled(error: DatabaseError) {
-                                TODO("Not yet implemented")
+                                Log.e("ERROR", "Unable to load book info...Error: $error")
                             }
                         })
 
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+                    Log.e("ERROR", "Unable to load book info...Error: $error")
                 }
             })
     }
@@ -204,7 +204,7 @@ class BookEditActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Log.e("ERROR", "Unable to load categories...Error: $error")
             }
         })
     }

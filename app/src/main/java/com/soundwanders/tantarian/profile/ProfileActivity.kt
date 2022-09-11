@@ -3,6 +3,7 @@ package com.soundwanders.tantarian.profile
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -68,12 +69,12 @@ class ProfileActivity : AppCompatActivity() {
                             .into(binding.profileIv)
                     }
                     catch (e: Exception) {
-
+                        Log.e("ERROR", "Unable to load user profile: ${e.message}")
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    Log.e("ERROR", "Unable to load user profile: $error")
                 }
             })
     }
@@ -106,7 +107,7 @@ class ProfileActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    Log.e("ERROR", "Unable to load Favorites in Profile Activity: $error")
                 }
             })
     }

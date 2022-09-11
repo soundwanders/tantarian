@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -44,7 +45,7 @@ class AdminDashboardActivity : AppCompatActivity() {
                 try {
                     adapterCategory.filter.filter(s)
                 } catch (e: Exception) {
-                    // add error handling
+                    Log.d("ERROR", "Error while filtering ADMIN book list: ${e.message}")
                 }
             }
 
@@ -105,7 +106,7 @@ class AdminDashboardActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                Log.e("ERROR", "Unable to load ADMIN book list: $error")
             }
         })
     }

@@ -3,6 +3,7 @@ package com.soundwanders.tantarian.auth
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -116,6 +117,7 @@ class LoginActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
+                    Log.e("ERROR", "Encountered error while checking user auth status: $error")
                 }
             })
     }

@@ -114,7 +114,7 @@ class BooksUserFragment : Fragment {
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                Log.e("ERROR", "Unable to retrieve collection of *all* books...Error: $error")
             }
         })
     }
@@ -138,7 +138,7 @@ class BooksUserFragment : Fragment {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    Log.e("ERROR", "Unable to load *most popular* books...Error: $error")
                 }
             })
     }
@@ -162,7 +162,7 @@ class BooksUserFragment : Fragment {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    Log.e("ERROR", "Encountered error while loading categorized books: $error")
                 }
             })
     }

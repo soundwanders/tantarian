@@ -114,6 +114,7 @@ class TantarianApplication : Application() {
                     }
 
                     override fun onCancelled(error: DatabaseError) {
+                        Log.e("ERROR", "Loading category failed...Error: $error")
                     }
                 })
         }
@@ -200,6 +201,7 @@ class TantarianApplication : Application() {
                     }
 
                     override fun onCancelled(error: DatabaseError) {
+                        Log.e("ERROR", "Firebase Database Error: $error")
                     }
                 })
         }

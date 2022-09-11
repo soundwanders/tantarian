@@ -95,7 +95,7 @@ class AdapterFavorites : RecyclerView.Adapter<AdapterFavorites.HolderBookFavorit
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    Log.e("ERROR", "Unable to load book details...Error: $error")
                 }
             })
     }

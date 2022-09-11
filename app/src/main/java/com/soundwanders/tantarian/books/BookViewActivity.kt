@@ -50,7 +50,7 @@ class BookViewActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    Log.e("ERROR", "Database error, cannot load book details: $error")
                 }
             })
     }

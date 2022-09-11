@@ -8,6 +8,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.Menu
 import android.widget.PopupMenu
 import android.widget.Toast
@@ -24,6 +25,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.soundwanders.tantarian.R
 import com.soundwanders.tantarian.TantarianApplication
+import com.soundwanders.tantarian.books.BookDetailsActivity
 import com.soundwanders.tantarian.databinding.ActivityEditProfileBinding
 
 class EditProfileActivity: AppCompatActivity() {
@@ -146,13 +148,13 @@ class EditProfileActivity: AppCompatActivity() {
                             .into(binding.profileIv)
                     }
                     catch (e: Exception) {
-
+                        Log.d("SAVE_TO_DOWNLOADS", "Failed due to ${e.message}")
                     }
 
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    Log.e("ERROR", "Unable to load user profile: $error")
                 }
             })
     }

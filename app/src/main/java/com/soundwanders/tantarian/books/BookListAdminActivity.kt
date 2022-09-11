@@ -88,6 +88,7 @@ class BookListAdminActivity : AppCompatActivity() {
                     binding.booksRv.adapter = adapterBookAdmin
                 }
                 override fun onCancelled(error: DatabaseError) {
+                    Log.e("ERROR", "Unable to load book list...Error: $error")
                 }
             })
     }
