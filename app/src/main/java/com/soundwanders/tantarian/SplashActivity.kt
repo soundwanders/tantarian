@@ -24,8 +24,8 @@ class SplashActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
-            startActivity(Intent(this, MainActivity::class.java))
-        }, 2000) // 2 second delay
+            checkUser()
+        }, 1500) // 1.5 second delay
     }
 
     private fun checkUser() {
@@ -41,12 +41,13 @@ class SplashActivity : AppCompatActivity() {
             ref.child(firebaseUser.uid)
                 .addListenerForSingleValueEvent(object: ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        // get user type (potential value is either User or Admin)
+                        // get user type (user or admin)
                         val userType = snapshot.child("userType").value
 
                         // navigate to appropriate dashboard depending on user type
                         if (userType == "user") {
                             startActivity(Intent(this@SplashActivity, UserDashboardActivity::class.java))
+                            finish()
                         }
                         else if (userType == "admin") {
                             startActivity(Intent(this@SplashActivity, AdminDashboardActivity::class.java))
