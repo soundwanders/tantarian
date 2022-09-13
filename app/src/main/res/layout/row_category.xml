@@ -39,7 +39,7 @@
             android:background="@drawable/shape_button03"
             android:src="@drawable/ic_delete_white"
             android:backgroundTint="@color/red_200"
-            android:contentDescription="@string/add_pdf" />
+            android:contentDescription="@string/upload_pdf" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

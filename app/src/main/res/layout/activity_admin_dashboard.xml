@@ -137,6 +137,6 @@
             android:backgroundTint="@color/peach_500"
             android:src="@drawable/ic_add_library_white"
             app:fabCustomSize="46dp"
-            android:contentDescription="@string/add_pdf" />
+            android:contentDescription="@string/upload_pdf" />
     </LinearLayout>
 </RelativeLayout>
