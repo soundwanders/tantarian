@@ -25,7 +25,7 @@
     <string name="forgot_password_header">Reset Password</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="forgot_password_subtext1">Forgot your password?</string>
-    <string name="forgot_password_subtext2">Let\'s fix that for you…</string>
+    <string name="forgot_password_subtext2">Let\'s fix that...</string>
     <string name="reset_password">Reset Password</string>
 
     <!-- User Profile -->
@@ -34,7 +34,7 @@
     <string name="account">Account</string>
     <string name="user_profile_avatar">User Avatar</string>
     <string name="member_since">Member Since</string>
-    <string name="favorite_books">📚 Favorites</string>
+    <string name="favorite_books">Favorites</string>
     <string name="edit_profile">Edit Your Profile</string>
 
     <!-- Buttons -->
@@ -76,8 +76,10 @@
 
     <!-- Favorites -->
     <string name="deselect_favorite">Remove from Favorites</string>
-    <string name="your_favorites">🧡 Favorites</string>
+    <string name="your_favorites">Your Favorites...</string>
     <string name="favorite">Favorite</string>
 
     <string name="blank_fragment">Blank fragment. Take Me to Your Leader! 👽 </string>
+    <string name="tablayout_content_description">Book Category Tabs Toolbar</string>
+    <string name="user_books_viewpager">User Books ViewPager</string>
 </resources>

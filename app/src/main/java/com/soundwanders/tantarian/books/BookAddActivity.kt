@@ -78,22 +78,22 @@ class BookAddActivity : AppCompatActivity() {
         category = binding.categoryTv.text.toString().trim()
 
         // then validate the data received
-       if (title.isEmpty()) {
-           Toast.makeText(this, "Enter title.", Toast.LENGTH_SHORT).show()
-       }
+        if (title.isEmpty()) {
+            Toast.makeText(this, "Enter title.", Toast.LENGTH_SHORT).show()
+        }
         else if (description.isEmpty()) {
-           Toast.makeText(this, "Enter description.", Toast.LENGTH_SHORT).show()
-       }
-       else if (category.isEmpty()) {
-           Toast.makeText(this, "Select a category.", Toast.LENGTH_SHORT).show()
-       }
-       else if (pdfUri == null ) {
-           Toast.makeText(this, "Select a Pdf.", Toast.LENGTH_SHORT).show()
-       }
+            Toast.makeText(this, "Enter description.", Toast.LENGTH_SHORT).show()
+        }
+        else if (category.isEmpty()) {
+            Toast.makeText(this, "Select a category.", Toast.LENGTH_SHORT).show()
+        }
+        else if (pdfUri == null ) {
+            Toast.makeText(this, "Select a Pdf.", Toast.LENGTH_SHORT).show()
+        }
         // if data is valid, upload
         else {
             uploadPdf()
-       }
+        }
     }
 
     private fun uploadPdf() {

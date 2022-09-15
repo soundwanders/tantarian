@@ -13,7 +13,6 @@ import com.soundwanders.tantarian.TantarianApplication
 import com.soundwanders.tantarian.books.BookDetailsActivity
 import com.soundwanders.tantarian.books.BookViewActivity
 import com.soundwanders.tantarian.databinding.RowBookUserBinding
-import com.soundwanders.tantarian.filter.FilterPdfAdmin
 import com.soundwanders.tantarian.filter.FilterPdfUser
 
 class AdapterBookUser: RecyclerView.Adapter<AdapterBookUser.HolderPdfUser>, Filterable {
@@ -22,7 +21,7 @@ class AdapterBookUser: RecyclerView.Adapter<AdapterBookUser.HolderPdfUser>, Filt
 
     private var context: Context
     private var filter: FilterPdfUser? = null
-    private val filterList: ArrayList<ModelBook>
+    private var filterList: ArrayList<ModelBook>
 
     // set pdfArrayList as public to allow access by FilterPdfAdmin Activity
     var pdfArrayList: ArrayList<ModelBook>

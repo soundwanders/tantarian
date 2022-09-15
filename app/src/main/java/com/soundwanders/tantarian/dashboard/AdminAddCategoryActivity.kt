@@ -15,8 +15,7 @@ class AdminAddCategoryActivity : AppCompatActivity() {
     // firebase auth
     private lateinit var firebaseAuth: FirebaseAuth
 
-    // PROGRESS DIALOG
-    // *** DEPRECATED *** DEPRECATED -- FIND REPLACEMENT
+    // PROGRESS DIALOG deprecated, will replace
     private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {

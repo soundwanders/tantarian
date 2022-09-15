@@ -59,7 +59,7 @@
             android:layout_marginEnd="10dp"
             android:src="@drawable/ic_logout_black"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/app_name"
+            android:contentDescription="@string/log_out"
             android:minWidth="48dp"
             android:minHeight="48dp" />
 
@@ -78,12 +78,14 @@
         app:tabIndicatorFullWidth="false"
         app:tabIndicatorHeight="0dp"
         app:tabMode="scrollable"
-        app:tabTextColor="@color/white" />
+        app:tabTextColor="@color/white"
+        android:contentDescription="@string/tablayout_content_description"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tabLayout" />
+        android:layout_below="@id/tabLayout"
+        android:contentDescription="@string/user_books_viewpager"/>
 
 </RelativeLayout>
