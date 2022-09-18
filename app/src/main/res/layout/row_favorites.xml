@@ -49,13 +49,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:padding="5dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_favorite_white"
-            app:tint="@color/white"
+            android:contentDescription="@string/deselect_favorite"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:contentDescription="@string/deselect_favorite"/>
+            android:padding="5dp"
+            android:src="@drawable/ic_favorite_white"
+            app:tint="@color/favorite_pink" />
 
         <TextView
             android:id="@+id/descriptionTv"

@@ -17,6 +17,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.soundwanders.tantarian.MainActivity
 import com.soundwanders.tantarian.models.ModelCategory
 import com.soundwanders.tantarian.R
 import com.soundwanders.tantarian.books.BooksUserFragment
@@ -46,8 +47,9 @@ class UserDashboardActivity : AppCompatActivity() {
             builder.setTitle("Delete")
                 .setMessage("Log out of your account?")
                 .setPositiveButton("Log Out") {a, d ->
-                    Toast.makeText(this, "Logging out...", Toast.LENGTH_SHORT).show()
                     firebaseAuth.signOut()
+                    startActivity(Intent(this, MainActivity::class.java))
+                    Toast.makeText(this, "Logged out.", Toast.LENGTH_SHORT).show()
                     finish()
                 }
                 .setNegativeButton("Cancel") { a, d ->

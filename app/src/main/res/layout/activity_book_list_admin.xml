@@ -34,7 +34,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="12dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/gray03"
             android:contentDescription="@string/add_new_book"
             android:minHeight="48dp"
             android:src="@drawable/ic_add_library_black"

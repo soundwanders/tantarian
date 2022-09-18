@@ -299,29 +299,4 @@ class BookDetailsActivity : AppCompatActivity() {
                 ).show()
             }
     }
-
-    private fun removeFavorite() {
-        Log.d(TAG, "removeFavorite: Removing selection from Favorites")
-        val timestamp = System.currentTimeMillis()
-
-        val hashMap = HashMap<String, Any>()
-        hashMap["bookId"] = bookId
-        hashMap["timestamp"] = timestamp
-
-        // save favorite to database
-        val ref = FirebaseDatabase.getInstance().getReference("Users")
-        ref.child(firebaseAuth.uid!!).child("Favorites").child(bookId)
-            .removeValue()
-            .addOnSuccessListener {
-                Log.d(TAG, "removeFavorite: Removing selection from Favorites")
-            }
-            .addOnFailureListener { e ->
-                Log.d(TAG, "Unable to remove selection from Favorites due to ${e.message}")
-                Toast.makeText(
-                    this,
-                    "Unable to Favorite due to ${e.message}",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-    }
 }

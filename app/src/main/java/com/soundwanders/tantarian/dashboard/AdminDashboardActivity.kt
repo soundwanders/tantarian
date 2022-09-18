@@ -59,8 +59,9 @@ class AdminDashboardActivity : AppCompatActivity() {
             builder.setTitle("Delete")
                 .setMessage("Log out of your account?")
                 .setPositiveButton("Log Out") {a, d ->
-                    Toast.makeText(this, "Logging out...", Toast.LENGTH_SHORT).show()
                     firebaseAuth.signOut()
+                    startActivity(Intent(this, MainActivity::class.java))
+                    Toast.makeText(this, "Logged out.", Toast.LENGTH_SHORT).show()
                     finish()
                 }
                 .setNegativeButton("Cancel") { a, d ->
