@@ -131,19 +131,19 @@
         android:id="@+id/categoryTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="5dp"
         android:layout_below="@id/descriptionTil"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/shape_edittext01"
-        app:drawableStartCompat="@drawable/ic_category_gray"
-        app:drawableEndCompat="@drawable/ic_down_gray"
         android:drawablePadding="10dp"
-        android:padding="10dp"
         android:hint="@string/book_category"
+        android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray01"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        app:drawableEndCompat="@drawable/ic_down_gray"
+        app:drawableStartCompat="@drawable/ic_category_gray" />
 
     <!-- Upload Pdf ** TextView -->
     <TextView

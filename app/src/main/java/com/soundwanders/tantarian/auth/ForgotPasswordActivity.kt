@@ -4,7 +4,6 @@ import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import android.view.LayoutInflater
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.soundwanders.tantarian.databinding.ActivityForgotPasswordBinding

@@ -149,7 +149,7 @@ class BookAddActivity : AppCompatActivity() {
                 Log.d(TAG, "uploadPdf: Uploaded Pdf, generating url...")
                 progressDialog.dismiss()
                 Toast.makeText(this, "Uploading $title", Toast.LENGTH_SHORT).show()
-                pdfUri == null
+                pdfUri = null
             }
             .addOnFailureListener { e->
                 Log.d(TAG, "uploadPdf: Failed to upload $title due to ${e.message}")

@@ -36,7 +36,6 @@
 
         <TextView
             android:id="@+id/titleTv"
-            style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="278dp"
             android:layout_height="wrap_content"
             android:layout_toStartOf="@id/moreBtn"
@@ -44,6 +43,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="@string/book_title"
+            android:textSize="20sp"
             android:textColor="@color/white"
             android:textStyle="bold" />
 

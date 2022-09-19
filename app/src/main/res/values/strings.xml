@@ -17,7 +17,7 @@
     <string name="request_user_login">Welcome!</string>
     <string name="create_account">Create an Account</string>
     <string name="register_user">Sign Up!</string>
-    <string name="user_not_logged_in">User Not Logged In</string>
+    <string name="user_not_logged_in">Guest User</string>
 
     <!-- Password -->
     <string name="password">Password</string>
@@ -25,12 +25,12 @@
     <string name="forgot_password_header">Reset Password</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="forgot_password_subtext1">Forgot your password?</string>
-    <string name="forgot_password_subtext2">Let\'s fix that...</string>
+    <string name="forgot_password_subtext2">Let\'s fix that…</string>
     <string name="reset_password">Reset Password</string>
 
     <!-- User Profile -->
     <string name="profile">Profile</string>
-    <string name="user_profile">Welcome Back!</string>
+    <string name="user_profile">Welcome Back! 🥳</string>
     <string name="account">Account</string>
     <string name="user_profile_avatar">User Avatar</string>
     <string name="member_since">Member Since</string>

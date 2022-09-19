@@ -24,8 +24,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.soundwanders.tantarian.R
-import com.soundwanders.tantarian.TantarianApplication
-import com.soundwanders.tantarian.books.BookDetailsActivity
 import com.soundwanders.tantarian.databinding.ActivityEditProfileBinding
 
 class EditProfileActivity: AppCompatActivity() {

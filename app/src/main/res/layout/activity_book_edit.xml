@@ -81,7 +81,9 @@
                     android:autofillHints="false"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray01"
-                    android:textCursorDrawable="@null" />
+                    android:textCursorDrawable="@null"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,7 +112,9 @@
                     android:autofillHints="false"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray01"
-                    android:textCursorDrawable="@null" />
+                    android:textCursorDrawable="@null"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -121,19 +125,21 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/descriptionTil"
                 android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
                 android:layout_marginTop="10dp"
-                android:padding="10dp"
+                android:layout_marginEnd="30dp"
+                android:autofillHints="false"
                 android:background="@drawable/shape_edittext01"
-                app:drawableStartCompat="@drawable/ic_category_gray"
-                app:drawableEndCompat="@drawable/ic_down_gray"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
                 android:hint="@string/category"
-                android:autofillHints="false"
+                android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray01"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                app:drawableEndCompat="@drawable/ic_down_gray"
+                app:drawableStartCompat="@drawable/ic_category_gray"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp" />
 
             <Button
                 android:id="@+id/submitBtn"
