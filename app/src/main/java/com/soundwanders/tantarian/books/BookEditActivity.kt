@@ -85,7 +85,7 @@ class BookEditActivity : AppCompatActivity() {
     }
 
     private fun loadBookInfo() {
-        Log.d(TAG, "loadBookInfo: Loading book information")
+        Log.d(TAG, "loadBookInfo: Loading book details")
 
         // begin updating book info
         val ref = FirebaseDatabase.getInstance().getReference("Books")
@@ -118,7 +118,7 @@ class BookEditActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Log.e("ERROR", "Unable to load book info...Error: $error")
+                    Log.e("ERROR", "Unable to load book info...see error: $error")
                 }
             })
     }
@@ -143,7 +143,7 @@ class BookEditActivity : AppCompatActivity() {
     }
 
     private fun updatePdf() {
-        Log.d(TAG, "updatePdf: Updating book info")
+        Log.d(TAG, "updatePdf: Applied your changes")
 
         progressDialog.setMessage("Updating book info...")
         progressDialog.show()
@@ -160,16 +160,17 @@ class BookEditActivity : AppCompatActivity() {
             .updateChildren(hashMap)
 
             .addOnSuccessListener {
-                Log.d(TAG, "updatePdf: Updated successful!")
+                progressDialog.dismiss()
+                Log.d(TAG, "updatePdf: $title details updated")
                 Toast.makeText(
                     this,
-                    "Updated data successfully",
+                    "Update successful",
                     Toast.LENGTH_SHORT
                 ).show()
             }
 
             .addOnFailureListener { e ->
-                Log.d(TAG, "updatePdf: Failed to update data due to ${e.message}")
+                Log.d(TAG, "updatePdf: Failed to update due to ${e.message}")
                 progressDialog.dismiss()
                 Toast.makeText(
                     this,
@@ -180,7 +181,7 @@ class BookEditActivity : AppCompatActivity() {
     }
 
     private fun loadCategories() {
-        Log.d(TAG, "loadCategories: Loading categories.")
+        Log.d(TAG, "loadCategories: Loading categories")
         categoryTitleArrayList = ArrayList()
         categoryIdArrayList = ArrayList()
 

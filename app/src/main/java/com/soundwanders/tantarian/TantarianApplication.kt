@@ -154,6 +154,7 @@ class TantarianApplication : Application() {
 
                         // NESTED onSuccess and onFailure listeners
                         .addOnSuccessListener {
+                            context.cacheDir.deleteRecursively()
                             progressDialog.dismiss()
                             Log.d(TAG, "deleteBook: Successfully deleted and removed book from database")
                             Toast.makeText(context, "Successfully deleted $bookTitle", Toast.LENGTH_SHORT).show()

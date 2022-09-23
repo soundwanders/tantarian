@@ -41,7 +41,7 @@ class EditProfileActivity: AppCompatActivity() {
         setContentView(binding.root)
 
         progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Please wait...")
+        progressDialog.setTitle("One moment please...")
         progressDialog.setCanceledOnTouchOutside(false)
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -71,7 +71,7 @@ class EditProfileActivity: AppCompatActivity() {
         else {
             if (imageUri == null) {
                 updateProfile("")
-                Toast.makeText(this, "Unable to upload new profile image", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Unable to upload your profile image", Toast.LENGTH_SHORT).show()
             }
             else {
                 uploadImage()
@@ -146,13 +146,13 @@ class EditProfileActivity: AppCompatActivity() {
                             .into(binding.profileIv)
                     }
                     catch (e: Exception) {
-                        Log.d("SAVE_TO_DOWNLOADS", "Failed due to ${e.message}")
+                        Log.d("SAVE_TO_DOWNLOADS", "Failed to loaf profile image due to ${e.message}")
                     }
 
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Log.e("ERROR", "Unable to load user profile: $error")
+                    Log.e("ERROR", "Unable to load user profile due to: $error")
                 }
             })
     }

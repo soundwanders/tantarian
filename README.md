@@ -1,5 +1,3 @@
-# tantarian
+# Tantarian
 
-work in progress...
-
-full-stack Android app built with Kotlin
+Full-stack Android app, built with Android Studio, Firebase and Kotlin

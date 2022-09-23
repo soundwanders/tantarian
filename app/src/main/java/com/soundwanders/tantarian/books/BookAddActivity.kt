@@ -70,7 +70,7 @@ class BookAddActivity : AppCompatActivity() {
     private var category = ""
 
     private fun validateData() {
-        Log.d(TAG, "validateData: Validating data.")
+        Log.d(TAG, "validateData: Validated data")
 
         // retrieve data
         title = binding.titleEt.text.toString().trim()
@@ -97,9 +97,9 @@ class BookAddActivity : AppCompatActivity() {
     }
 
     private fun uploadPdf() {
-        Log.d(TAG, "uploadPdf: Uploading Pdf to cloud storage.")
+        Log.d(TAG, "uploadPdf: Added successfully")
 
-        progressDialog.setMessage("Uploading Pdf...")
+        progressDialog.setMessage("Adding to library...")
         progressDialog.show()
 
         val timestamp = System.currentTimeMillis()
@@ -109,7 +109,7 @@ class BookAddActivity : AppCompatActivity() {
 
         storageReference.putFile(pdfUri!!)
             .addOnSuccessListener { taskSnapshot ->
-                Log.d(TAG, "uploadPdf: Uploaded Pdf, generating url")
+                Log.d(TAG, "uploadPdf: Upload successful")
 
                 // get url of uploaded Pdf
                 val uriTask: Task<Uri> = taskSnapshot.storage.downloadUrl
@@ -118,15 +118,15 @@ class BookAddActivity : AppCompatActivity() {
                 storePdfInDatabase(storedPdfUrl, timestamp)
             }
             .addOnFailureListener { e->
-                Log.d(TAG, "uploadPdf: Failed to upload Pdf due to ${e.message}")
+                Log.d(TAG, "uploadPdf: Failed to upload due to ${e.message}")
                 progressDialog.dismiss()
-                Toast.makeText(this, "Failed to upload Pdf due to ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Failed to upload due to ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 
     private fun storePdfInDatabase(storedPdfUrl: String, timestamp: Long) {
-        Log.d(TAG, "storedPdfUrl: Uploading pdf to database...")
-        progressDialog.setMessage("Uploading pdf to database...")
+        Log.d(TAG, "storedPdfUrl: Saved!")
+        progressDialog.setMessage("Saving to library...")
 
         val uid = firebaseAuth.uid
 
@@ -146,7 +146,7 @@ class BookAddActivity : AppCompatActivity() {
         ref.child("$timestamp")
             .setValue(hashMap)
             .addOnSuccessListener {
-                Log.d(TAG, "uploadPdf: Uploaded Pdf, generating url...")
+                Log.d(TAG, "uploadPdf: $title added to library")
                 progressDialog.dismiss()
                 Toast.makeText(this, "Uploading $title", Toast.LENGTH_SHORT).show()
                 pdfUri = null
@@ -219,7 +219,7 @@ class BookAddActivity : AppCompatActivity() {
         pdfActivityResultLauncher.launch(intent)
     }
 
-    val pdfActivityResultLauncher = registerForActivityResult(
+    private val pdfActivityResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
         ActivityResultCallback<ActivityResult> { result ->
             if (result.resultCode == RESULT_OK) {

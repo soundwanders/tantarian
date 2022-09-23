@@ -59,6 +59,7 @@ class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
                 .setPositiveButton("Confirm") {a, d ->
                     Toast.makeText(context, "Deleting category...", Toast.LENGTH_SHORT).show()
                     deleteCategory(model, holder)
+                    context.cacheDir.deleteRecursively()
                 }
                 .setNegativeButton("Cancel") { a, d ->
                     a.dismiss()

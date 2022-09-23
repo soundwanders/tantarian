@@ -58,8 +58,8 @@ class BookViewActivity : AppCompatActivity() {
     private fun loadBookFromUrl(bookUrl: String) {
         Log.d(TAG, "loadBookFromUrl: Loading book using data url")
 
-        val reference = FirebaseStorage.getInstance().getReferenceFromUrl(bookUrl)
-        reference.getBytes(Constants.MAX_ALLOWABLE_BYTES_PDF)
+        val storageRef = FirebaseStorage.getInstance().getReferenceFromUrl(bookUrl)
+        storageRef.getBytes(Constants.MAX_ALLOWABLE_BYTES_PDF)
             .addOnSuccessListener { bytes ->
                 Log.d(TAG, "loadBookDetails: Loaded book data")
 
