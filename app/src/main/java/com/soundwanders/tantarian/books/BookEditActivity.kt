@@ -161,10 +161,10 @@ class BookEditActivity : AppCompatActivity() {
 
             .addOnSuccessListener {
                 progressDialog.dismiss()
-                Log.d(TAG, "updatePdf: $title details updated")
+                Log.d(TAG, "updatePdf: $title updated")
                 Toast.makeText(
                     this,
-                    "Update successful",
+                    "Success!",
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -205,7 +205,7 @@ class BookEditActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.e("ERROR", "Unable to load categories...Error: $error")
+                Log.e("ERROR", "Unable to load categories...error: $error")
             }
         })
     }

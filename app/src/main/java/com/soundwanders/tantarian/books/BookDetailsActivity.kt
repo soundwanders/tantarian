@@ -192,7 +192,7 @@ class BookDetailsActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Log.e("ERROR", "Unable to load book details...Error: $error")
+                    Log.e("ERROR", "Unable to load book details...error: $error")
                 }
             })
     }
@@ -212,7 +212,7 @@ class BookDetailsActivity : AppCompatActivity() {
                     }
 
                     val newDownloadsCount: Long = downloadsCount.toLong() + 1
-                    Log.d(TAG, "onDataChange: Updated downloads count: $newDownloadsCount")
+                    Log.d(TAG, "onDataChange: Updated download count: $newDownloadsCount")
 
                     val hashMap: HashMap<String, Any> = HashMap()
                     hashMap["downloadsCount"] = newDownloadsCount

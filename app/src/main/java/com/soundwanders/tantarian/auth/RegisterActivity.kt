@@ -93,7 +93,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun updateUserInfo() {
-        progressDialog.setMessage("Saving updated user info...")
+        progressDialog.setMessage("Saving user info...")
 
         val timestamp = System.currentTimeMillis()
         val uid = firebaseAuth.uid
