@@ -1,6 +1,8 @@
 # Tantarian
 
-A modern, full-featured Android library management application for organizing and reading PDF documents. Built with Kotlin, Firebase, and Material Design principles.
+An educational dive into Kotlin and the Android development environment, Tantarian is a digital library management application for organizing and reading e-books and other PDFs.
+
+Powered by Kotlin, Firebase, and Material Design principles.
 
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)
